@@ -43,7 +43,7 @@ export default function RootLayout({
       className="overscroll-x-none overflow-x-hidden bg-background -z-10 relative"
     >
       <body
-        className={`${notoSansJp.variable} ${geistMono.variable} ${sans.variable} antialiased min-h-screen bg-gradient-to-br from-blue-200 to-rose-200 z-0 relative`}
+        className={`${notoSansJp.variable} ${geistMono.variable} ${sans.variable} antialiased min-h-screen bg-gradient-to-br from-blue-500 to-rose-500 z-0 relative`}
       >
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"

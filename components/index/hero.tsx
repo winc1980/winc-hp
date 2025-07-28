@@ -71,7 +71,7 @@ export default function Hero() {
 
   return (
     <section
-      className="flex flex-col w-full max-w-7xl justify-stretch lg:justify-center items-center lg:items-start lg:gap-12 min-h-screen"
+      className="flex flex-col w-full max-w-7xl justify-stretch lg:justify-center items-center lg:items-start lg:gap-12 min-h-screen py-16"
       ref={scope}
     >
       <div className="mt-24 lg:mt-8 mx-2 px-2 flex flex-col grow lg:grow-0">
@@ -82,11 +82,11 @@ export default function Hero() {
           >
             <span
               id="hero-main-typo-1"
-              className="break-keep text-5xl lg:text-7xl font-light palt "
+              className="break-keep text-5xl lg:text-7xl font-medium palt "
             ></span>
             <span
               id="hero-main-typo-2"
-              className="break-keep text-5xl lg:text-7xl font-light palt "
+              className="break-keep text-5xl lg:text-7xl font-medium palt "
             ></span>
             <div
               id="hero-main-typo-cursor"
@@ -105,7 +105,7 @@ export default function Hero() {
         </div>
         <div className="flex flex-wrap gap-4 my-6 justify-start">
           <Link href="https://secure.register.winc.ne.jp/">
-            <div className="flex gap-1 p-4 rounded-2xl border border-foreground/10 hover:border-foreground/0 transition-colors duration-500 bg-gradient-to-r from-background to-background hover:from-blue-200 hover:to-rose-200">
+            <div className="flex gap-1 p-4 border border-foreground/10 hover:border-foreground/0 transition-colors duration-300 ease-in-out text-background button-slider from-purple-500 to-purple-500">
               新入生向け情報
               <ArrowRight />
             </div>

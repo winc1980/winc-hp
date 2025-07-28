@@ -24,7 +24,7 @@ export default function LoadingOrBg() {
     {showLoadscreen ? <Loading disabled={loaded} /> : <></>}
     <div
       id="homepage-background"
-      className="fixed h-[calc(100vh_+_200px)] w-full -z-1 top-[-100px] mix-blend-overlay invert"
+      className="fixed h-[calc(100vh_+_200px)] w-full -z-1 top-[-100px] mix-blend-screen invert"
     ></div>
     <Script id="script">
       {`VANTA.NET({
