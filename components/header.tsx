@@ -98,7 +98,7 @@ export default function Header() {
               className="filter-invert object-cover hidden lg:block"
             />
             <Image
-              src="/WINC-designs/black icon.svg"
+              src="/WINC-designs/Black Icon.svg"
               width={64}
               height={24}
               alt="WINCアプリチーム"

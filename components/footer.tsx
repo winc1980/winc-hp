@@ -30,7 +30,7 @@ export default function Footer() {
       >
         <Link href="/">
           <Image
-            src="/winc-designs/black-logo.svg"
+            src="/WINC-designs/black-logo.svg"
             width={280}
             height={48}
             alt="WINC: アプリチーム"
