@@ -19,7 +19,7 @@ export default async function News() {
     <>
       <div className="divide-effect flex flex-col justify-center">
         <section className="border-t border-b border-foreground/10 w-full max-w-7xl py-32 flex flex-col gap-20">
-          <SectionHeading titleEn="news;" titleJa="新着情報" />
+          <SectionHeading titleEn="news" titleJa="新着情報" />
           <div className="min-h-[80vh] divide-effect flex flex-col items-center">
             {news.map((newsContent: NewsType, i: number) => {
               if (i < 3)
@@ -29,7 +29,7 @@ export default async function News() {
             })}
             <Link
               href="/news/"
-              className="flex gap-1  hover:gap-3  p-4 rounded-xs border border-foreground w-fit bg-background/80 hover:bg-foreground/30 transition duration-300"
+              className="flex gap-1 p-4 border-2 w-fit bg-foreground text-white hover:bg-transparent hover:text-foreground transition duration-300"
             >
               もっと見る
               <Plus />

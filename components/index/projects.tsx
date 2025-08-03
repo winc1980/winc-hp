@@ -17,7 +17,7 @@ export default async function Projects() {
   return (
     <div className="divide-effect flex flex-col justify-center">
       <section className="border-t border-b border-foreground/10 w-full max-w-7xl py-32 flex flex-col gap-20">
-        <SectionHeading titleEn="Our.Projects(type:featured)" titleJa="注目のプロジェクト" />
+        <SectionHeading titleEn="Featured projects" titleJa="注目のプロジェクト" />
         <div className="divide-effect">
           <div className="flex flex-wrap max-w-7xl">
             {/* 上位3件を表示 */}
@@ -33,7 +33,7 @@ export default async function Projects() {
         <div className="divide-effect">
           <Link
             href="/projects/"
-            className="flex gap-1  hover:gap-3  p-4 rounded-xs border border-foreground w-fit bg-background/80 hover:bg-foreground/30 transition duration-300"
+            className="flex gap-1 p-4 border-2 w-fit bg-foreground text-white hover:bg-transparent hover:text-foreground transition duration-300"
           >
             もっと見る
             <Plus />

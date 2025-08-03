@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_JP, Geist_Mono, Poppins } from "next/font/google";
+import { Noto_Sans_JP, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
@@ -11,8 +11,7 @@ const notoSansJp = Noto_Sans_JP({
   subsets: ["latin"],
 });
 
-const sans = Poppins({
-  weight: ['500'],
+const sans = Montserrat({
   subsets: ["latin"],
   variable: "--default-sansserif",
 });
@@ -25,7 +24,7 @@ export const viewport: Viewport = {
   themeColor: 'white',
 }
 export const metadata: Metadata = {
-  title: "WINC",
+  title: "WINC - 早稲田コンピューター研究会",
   description: "早稲田コンピューター研究会（WINC）の公式ホームページです。",
   appleWebApp: {
     title: "WINC",

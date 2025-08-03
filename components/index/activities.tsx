@@ -5,7 +5,7 @@ export default function Activities() {
   return (
     <div className="divide-effect flex flex-col justify-center">
       <section className="border-t border-b border-foreground/10 w-full max-w-7xl py-32 flex flex-col gap-20">
-        <SectionHeading titleEn="what we do:" titleJa="主な活動内容" />
+        <SectionHeading titleEn="what we do" titleJa="主な活動内容" />
         <div>
           <div className="divide-effect">
             <div className="lg:grid lg:grid-cols-15 max-w-7xl">

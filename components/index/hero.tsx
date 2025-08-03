@@ -14,9 +14,9 @@ export default function Hero() {
   gsap.registerPlugin(SplitText);
   const scope = useRef(null);
   const typoTexts = [
-    [ "アプリで、", "世界を変えよう。" ],
-    [ "アイデアで、", "世界を変えよう。" ],
-    [ "デザインで、", "世界を変えよう。" ],
+    [ "Learn", "together." ],
+    [ "Build", "together." ],
+    [ "Change", "together." ],
   ];
   useGSAP(
     () => {
@@ -82,34 +82,22 @@ export default function Hero() {
           >
             <span
               id="hero-main-typo-1"
-              className="break-keep text-5xl lg:text-7xl font-medium palt "
+              className="break-keep text-5xl lg:text-7xl font-bold palt uppercase mr-5"
             ></span>
             <span
               id="hero-main-typo-2"
-              className="break-keep text-5xl lg:text-7xl font-medium palt "
+              className="break-keep text-5xl lg:text-7xl font-bold palt uppercase"
             ></span>
             <div
               id="hero-main-typo-cursor"
-              className="inline-block text-5xl lg:text-7xl border-r-8"
+              className="inline-block text-5xl lg:text-7xl border-r-12"
             >
               <span className="opacity-0">I</span>
             </div>
           </div>
-          <span className="break-keep font-mono">
-            Realise Your Vision in Waseda with{" "}
-            <span className="bg-linear-to-r from-cyan-500 to-blue-500 to-text-gradient">
-              Code
-            </span>
-            .
+          <span className="break-keep font-extrabold text-xl flex flex-wrap gap-3">
+            <p>学ぶ</p>×<p>創る</p>×<p>変える</p>
           </span>
-        </div>
-        <div className="flex flex-wrap gap-4 my-6 justify-start">
-          <Link href="https://secure.register.winc.ne.jp/">
-            <div className="flex gap-1 p-4 border border-foreground/10 hover:border-foreground/0 transition-colors duration-300 ease-in-out text-background button-slider from-purple-500 to-purple-500">
-              新入生向け情報
-              <ArrowRight />
-            </div>
-          </Link>
         </div>
       </div>
     </section>

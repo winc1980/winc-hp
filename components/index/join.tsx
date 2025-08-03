@@ -58,7 +58,7 @@ export default function Join() {
   return (
     <div className="divide-effect flex flex-col" ref={scope}>
       <section className="gsap-trigger border-t border-b border-foreground/10 w-full max-w-7xl py-32 relative">
-        <SectionHeading titleEn="join.us" titleJa="新歓情報" />
+        <SectionHeading titleEn="join us" titleJa="新歓情報" />
         <h2 className="overflow-hidden text-[42px] lg:text-7xl font-light w-full divide-effect">
           <div className="gsap gsap-chars ">
             you{" "}
@@ -87,12 +87,12 @@ export default function Join() {
             通常活動日にお越しください。
           </div>
         </div>
-          <Link href="https://secure.register.winc.ne.jp/" className="divide-effect">
-            <div className="w-fit flex gap-1 p-4 rounded-2xl border border-foreground/10 hover:border-foreground/0 transition-colors duration-500 bg-gradient-to-r from-background to-background hover:from-blue-200 hover:to-rose-200">
-              新入生向け情報
-              <ArrowRight />
-            </div>
-          </Link>
+        <Link href="https://secure.register.winc.ne.jp/">
+          <div className="flex gap-1 p-4 w-fit border-2 transition-colors duration-300 ease-in-out text-background button-slider from-blue-300 to-rose-300">
+            新入生向け情報
+            <ArrowRight />
+          </div>
+        </Link>
       </section>
     </div>
   );

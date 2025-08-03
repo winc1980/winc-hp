@@ -114,23 +114,23 @@ export default function Header() {
             />
           )}
           <div className="hidden lg:block">
-            <div className="flex gap-6 items-center uppercase font-medium">
-              <div className="opacity-70 hover:opacity-100">
+            <div className="flex gap-6 items-center uppercase font-bold">
+              <div className="hover:border-b-2">
                 <Link href="/members">
                   <div>Members</div>
                 </Link>
               </div>
-              <div className="opacity-70 hover:opacity-100">
+              <div className="hover:border-b-2">
                 <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd77gukiHN_CpEvbhcMd7awd3VZqvx-f-I2g6kpYK2hUVhHxA/viewform">
                   <div>Contact</div>
                 </Link>
               </div>
-              <div className="opacity-70 hover:opacity-100">
+              <div className="hover:border-b-2">
                 <Link href="/projects">
                   <div>Projects</div>
                 </Link>
               </div>
-              <div className="opacity-70 hover:opacity-100">
+              <div className="hover:border-b-2">
                 <Link href="/news">
                   <div>News</div>
                 </Link>
@@ -162,7 +162,7 @@ export default function Header() {
               </div>
               <div className="min-w-[166px]">
                 <Link href="https://secure.register.winc.ne.jp/">
-                  <div className="flex gap-1 p-4 rounded-2xl border border-foreground/10 hover:border-foreground/0 transition-colors duration-500 bg-gradient-to-r from-background to-background hover:from-blue-200 hover:to-rose-200">
+                  <div className="flex gap-1 p-4 w-fit border-2 transition-colors duration-300 ease-in-out text-background button-slider from-blue-300 to-rose-300">
                     新入生向け情報
                     <ArrowRight />
                   </div>

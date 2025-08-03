@@ -49,8 +49,8 @@ export default function SectionHeading({
       });
       typingTl.to(".gsap-typing", {
         autoAlpha: 1,
-        text: titleJa,
-        duration: titleJa.length * 0.1,
+        text: titleEn,
+        duration: titleEn.length * 0.1,
       });
 
       gsap.fromTo(
@@ -72,8 +72,8 @@ export default function SectionHeading({
   return (
     <div className="divide-effect">
       <h2 ref={scope} className="text-4xl lg:text-5xl font-light w-full overflow-y-hidden">
-        <p className="font-mono text-sm opacity-60 px-1 gsap-lines">{titleEn}</p>
-        <span className="gsap-typing overflow-hidden border-r-4"></span>
+        <p className="font-extrabold text-sm px-1 gsap-lines">{titleJa}</p>
+        <span className="gsap-typing overflow-hidden border-r-4 uppercase font-bold"></span>
       </h2>
     </div>
   );
