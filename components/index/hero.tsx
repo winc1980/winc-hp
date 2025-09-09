@@ -82,7 +82,7 @@ export default function Hero() {
           >
             <span
               id="hero-main-typo-1"
-              className="break-keep text-5xl lg:text-7xl font-bold palt uppercase mr-5"
+              className="break-keep text-5xl lg:text-7xl font-bold palt uppercase mr-5 text-secondary"
             ></span>
             <span
               id="hero-main-typo-2"

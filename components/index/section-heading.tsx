@@ -57,7 +57,7 @@ export default function SectionHeading({
         ".gsap-typing",
         1,
         {
-          "border-right-color": "rgba(255,255,255,0.8)",
+          "border-right-color": "rgba(0,0,0,0.8)",
         },
         {
           "border-right-color": "rgba(255,255,255,0)",
