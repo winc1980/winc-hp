@@ -20,7 +20,7 @@ export default function Header() {
         } h-screen w-screen fixed top-0 bg-background`}
       />
       <header
-        className={`flex justify-center w-full top-0 px-4 z-10 border-b transition-all duration-300 ${
+        className={`flex justify-center w-full top-0 px-4 z-20 border-b transition-all duration-300 ${
           isScrollTop
             ? "border-transparent bg-transparent"
             : "border-foreground/20 bg-background"
