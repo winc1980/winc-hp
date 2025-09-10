@@ -76,6 +76,9 @@ export default function Hero() {
     >
       <div className="mt-24 lg:mt-8 mx-2 px-2 flex flex-col grow lg:grow-0">
         <div className="flex flex-col gap-6 text-center justify-center lg:text-start grow">
+          <span className="font-extrabold text-md">
+            <p>早稲田大学コンピューター研究会</p>
+          </span>
           <div
             id="hero-main-typo"
             className="w-fit flex flex-wrap justify-center"
@@ -95,7 +98,7 @@ export default function Hero() {
               <span className="opacity-0">I</span>
             </div>
           </div>
-          <span className="break-keep font-extrabold text-xl flex flex-wrap gap-3">
+          <span className="break-keep font-extrabold text-xl flex flex-wrap gap-3 justify-center lg:justify-start">
             <p>学ぶ</p>×<p>創る</p>×<p>変える</p>
           </span>
         </div>
