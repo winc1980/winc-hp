@@ -1,26 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="75" height="75"><svg id="SvgjsSvg1003" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 75 75">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="68.53" height="68.53"><svg id="SvgjsSvg1007" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68.53 68.53">
   <defs>
     <style>
       .cls-1 {
-        fill: #fff;
+        fill: #1c1917;
       }
 
       .cls-2 {
-        fill: none;
-      }
-
-      .cls-3 {
-        clip-path: url(#clippath);
+        fill: #f8f0e5;
       }
     </style>
-    <clipPath id="SvgjsClipPath1002">
-      <rect class="cls-2" x="0" y="0" width="75" height="75" rx="13.7" ry="13.7"></rect>
-    </clipPath>
   </defs>
-  <rect class="cls-1" x="0" y="0" width="75" height="75" rx="13.7" ry="13.7"></rect>
-  <g class="cls-3">
-    <path d="M40.06,11.96h12.42l-17.54,50.53h-12.42L40.06,11.96Z"></path>
+  <g>
+    <rect class="cls-2" x="1.44" y="1.44" width="65.66" height="65.66" rx="13.01" ry="13.01"></rect>
+    <path class="cls-1" d="M54.63,68.53H13.9C6.24,68.53,0,62.29,0,54.63V13.9C0,6.24,6.24,0,13.9,0h40.72c7.67,0,13.9,6.24,13.9,13.9v40.72c0,7.67-6.24,13.9-13.9,13.9ZM13.9,2.87C7.82,2.87,2.87,7.82,2.87,13.9v40.72c0,6.08,4.95,11.03,11.03,11.03h40.72c6.08,0,11.03-4.95,11.03-11.03V13.9c0-6.08-4.95-11.03-11.03-11.03H13.9Z"></path>
   </g>
+  <path class="cls-1" d="M43.28,56.27l-8.07-17.17-7.82,17.17L8.99,16.98h8.86l6.09,13.21c.45.94,1.43,1.63,2.52,1.63,1.48,0,2.72-1.24,2.72-2.77,0-.35-.05-.74-.25-1.09l-4.9-10.98h9.4l6.14,13.31c.45.94,1.43,1.63,2.52,1.63,1.48,0,2.72-1.29,2.72-2.77,0-.4-.05-.74-.25-1.09l-4.95-11.08h21.52l-17.86,39.28Z"></path>
 </svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
 @media (prefers-color-scheme: dark) { :root { filter: none; } }
 </style></svg>
