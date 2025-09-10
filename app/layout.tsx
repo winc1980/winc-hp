@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_JP, Geist_Mono, Montserrat } from "next/font/google";
+import { Noto_Sans_JP, Geist_Mono, Funnel_Display } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
@@ -11,7 +11,7 @@ const notoSansJp = Noto_Sans_JP({
   subsets: ["latin"],
 });
 
-const sans = Montserrat({
+const sans = Funnel_Display({
   subsets: ["latin"],
   variable: "--default-sansserif",
 });

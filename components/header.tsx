@@ -88,21 +88,21 @@ export default function Header() {
             </footer>
           </div>
         </div>
-        <div className="flex w-full justify-between items-center gap-3 max-w-7xl top-0 z-30 relative">
+        <div className="flex w-full justify-between items-center gap-3 max-w-7xl top-0 z-30 relative py-2">
           <Link href="/" className="flex items-center">
             <Image
-              src="/WINC-designs/black-logo.svg"
-              width={380}
+              src="/WINC-classic-designs/logo.svg"
+              width={160}
               height={24}
               alt="WINCアプリチーム"
               className="filter-invert object-cover hidden lg:block"
             />
             <Image
-              src="/WINC-designs/Black Icon.svg"
-              width={64}
-              height={24}
+              src="/WINC-classic-designs/icon.svg"
+              width={56}
+              height={56}
               alt="WINCアプリチーム"
-              className="filter-invert object-cover lg:hidden"
+              className="filter-invert object-cover lg:hidden p-2"
             />
           </Link>
           {isOpen ? (
