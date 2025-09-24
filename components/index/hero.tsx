@@ -1,6 +1,4 @@
 "use client";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { useRef } from "react";
 import gsap from "gsap";
 import TextPlugin from "gsap/TextPlugin";
@@ -14,9 +12,9 @@ export default function Hero() {
   gsap.registerPlugin(SplitText);
   const scope = useRef(null);
   const typoTexts = [
-    [ "Learn", "together." ],
-    [ "Build", "together." ],
-    [ "Change", "together." ],
+    ["Learn", "together."],
+    ["Build", "together."],
+    ["Change", "together."],
   ];
   useGSAP(
     () => {
@@ -40,10 +38,10 @@ export default function Hero() {
               autoAlpha: 1,
               text: texts[0],
               duration: texts[0].length * 0.15,
-           }
+            }
           )
           .to(
-           "#hero-main-typo-2",
+            "#hero-main-typo-2",
             {
               autoAlpha: 1,
               text: texts[1],

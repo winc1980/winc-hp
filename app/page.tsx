@@ -3,7 +3,6 @@ import Projects from "@/components/index/projects";
 import Join from "@/components/index/join";
 import Activities from "@/components/index/activities";
 import Message from "@/components/index/message";
-import About from "@/components/index/about";
 import Hero from "@/components/index/hero";
 import LearnSection from "@/components/index/learn";
 export default function Home() {
