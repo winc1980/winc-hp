@@ -1,3 +1,4 @@
+import { PrimaryButton } from "../buttons/PrimaryButton";
 import { RadioGroup } from "./RadioGroup";
 import { TextArea } from "./TextArea";
 import { TextInput } from "./TextInput";
@@ -21,9 +22,9 @@ function StudentContactForm({ className }: { className?: string }) {
         <TextInput label="所属" id="affiliation" />
         <TextArea label="お問い合わせ内容" id="message" required />
       </div>
-      <button type="submit" className="flex gap-1 p-4 w-fit border-2 transition-colors duration-300 ease-in-out text-background button-slider from-blue-300 to-rose-300">
+      <PrimaryButton type="submit">
         この内容で送信
-      </button>
+      </PrimaryButton>
     </form>
   );
 }

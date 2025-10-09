@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/all";
 import SectionHeading from "./section-heading";
+import { PrimaryButton } from "../buttons/PrimaryButton";
 
 export default function Join() {
   gsap.registerPlugin(TextPlugin);
@@ -88,10 +89,10 @@ export default function Join() {
           </div>
         </div>
         <Link href="https://secure.register.winc.ne.jp/">
-          <div className="flex gap-1 p-4 w-fit border-2 transition-colors duration-300 ease-in-out text-background button-slider from-blue-300 to-rose-300">
+          <PrimaryButton>
             新入生向け情報
             <ArrowRight />
-          </div>
+          </PrimaryButton>
         </Link>
       </section>
     </div>
