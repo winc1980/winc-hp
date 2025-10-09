@@ -21,8 +21,8 @@ export default function Header() {
       />
       <header
         className={`flex justify-center w-full top-0 px-4 z-20 border-b transition-all duration-300 ${isScrollTop
-            ? "border-transparent bg-transparent"
-            : "border-foreground/20 bg-background"
+          ? "border-transparent bg-transparent"
+          : "border-foreground/20 bg-background"
           } ${scrollDirection === "up" ? "fixed" : "absolute"}`}
       >
         <div
@@ -37,7 +37,7 @@ export default function Header() {
                 </Link>
               </div>
               <div className="font-mono">
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd77gukiHN_CpEvbhcMd7awd3VZqvx-f-I2g6kpYK2hUVhHxA/viewform">
+                <Link onNavigate={onNavigate} href="/contact">
                   <div>Contact</div>
                 </Link>
               </div>
@@ -119,7 +119,7 @@ export default function Header() {
                 </Link>
               </div>
               <div className="hover:border-b-2">
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd77gukiHN_CpEvbhcMd7awd3VZqvx-f-I2g6kpYK2hUVhHxA/viewform">
+                <Link href="/contact">
                   <div>Contact</div>
                 </Link>
               </div>
