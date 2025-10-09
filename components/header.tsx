@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useScrollStatus } from "@/hooks/scroll-status";
+import { PrimaryButton } from "./buttons/PrimaryButton";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,21 +16,18 @@ export default function Header() {
     <>
       <div
         id="mobile-menu-bg"
-        className={`${
-          isOpen ? "opacity-100 z-5" : "opacity-0 -z-1"
-        } h-screen w-screen fixed top-0 bg-background`}
+        className={`${isOpen ? "opacity-100 z-5" : "opacity-0 -z-1"
+          } h-screen w-screen fixed top-0 bg-background`}
       />
       <header
-        className={`flex justify-center w-full top-0 px-4 z-20 border-b transition-all duration-300 ${
-          isScrollTop
-            ? "border-transparent bg-transparent"
-            : "border-foreground/20 bg-background"
-        } ${scrollDirection === "up" ? "fixed" : "absolute"}`}
+        className={`flex justify-center w-full top-0 px-4 z-20 border-b transition-all duration-300 ${isScrollTop
+          ? "border-transparent bg-transparent"
+          : "border-foreground/20 bg-background"
+          } ${scrollDirection === "up" ? "fixed" : "absolute"}`}
       >
         <div
-          className={`${
-            isOpen ? "block" : "hidden"
-          } fixed h-screen w-screen z-20 bg-background`}
+          className={`${isOpen ? "block" : "hidden"
+            } fixed h-screen w-screen z-20 bg-background`}
         >
           <div className="flex flex-col h-full justify-between pt-48 pb-24">
             <ul className="flex flex-col gap-4 text-xl font-medium px-8">
@@ -39,7 +37,7 @@ export default function Header() {
                 </Link>
               </div>
               <div className="font-mono">
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd77gukiHN_CpEvbhcMd7awd3VZqvx-f-I2g6kpYK2hUVhHxA/viewform">
+                <Link onNavigate={onNavigate} href="/contact">
                   <div>Contact</div>
                 </Link>
               </div>
@@ -121,7 +119,7 @@ export default function Header() {
                 </Link>
               </div>
               <div className="hover:border-b-2">
-                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSd77gukiHN_CpEvbhcMd7awd3VZqvx-f-I2g6kpYK2hUVhHxA/viewform">
+                <Link href="/contact">
                   <div>Contact</div>
                 </Link>
               </div>
@@ -162,10 +160,10 @@ export default function Header() {
               </div>
               <div className="min-w-[166px]">
                 <Link href="https://secure.register.winc.ne.jp/">
-                  <div className="flex gap-1 p-4 w-fit border-2 transition-colors duration-300 ease-in-out text-background button-slider from-blue-300 to-rose-300">
+                  <PrimaryButton>
                     新入生向け情報
                     <ArrowRight />
-                  </div>
+                  </PrimaryButton>
                 </Link>
               </div>
             </div>

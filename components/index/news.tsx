@@ -4,6 +4,7 @@ import { NewsType } from "@/types/News";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import SectionHeading from "./section-heading";
+import { PrimaryButton } from "../buttons/PrimaryButton";
 
 async function getNews() {
   const data = await client.get({
@@ -29,10 +30,11 @@ export default async function News() {
             })}
             <Link
               href="/news/"
-              className="flex gap-1 p-4 border-2 w-fit bg-foreground text-white hover:bg-transparent hover:text-foreground transition duration-300"
             >
-              もっと見る
-              <Plus />
+              <PrimaryButton>
+                もっと見る
+                <Plus />
+              </PrimaryButton>
             </Link>
           </div>
         </section>

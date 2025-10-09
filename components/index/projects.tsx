@@ -4,6 +4,7 @@ import { ProjectCard } from "../projects/ProjectCard";
 import { ProjectType } from "@/types/Project";
 import { client } from "@/libs/microcms";
 import SectionHeading from "./section-heading";
+import { PrimaryButton } from "../buttons/PrimaryButton";
 
 async function getProjects(): Promise<ProjectType[]> {
   const data = await client.get({
@@ -33,10 +34,11 @@ export default async function Projects() {
         <div className="divide-effect">
           <Link
             href="/projects/"
-            className="flex gap-1 p-4 border-2 w-fit bg-foreground text-white hover:bg-transparent hover:text-foreground transition duration-300"
           >
-            もっと見る
-            <Plus />
+            <PrimaryButton>
+              もっと見る
+              <Plus />
+            </PrimaryButton>
           </Link>
         </div>
       </section>
