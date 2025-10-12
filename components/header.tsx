@@ -11,7 +11,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollDirection, isScrollTop] = useScrollStatus();
   const onNavigate = () => setIsOpen(false);
-  const [expanded, setExpanded] = useState<1 | 2 | null>(1);
+  const [expanded, setExpanded] = useState<1 | 2 | null>(null);
 
   return (
     <div onMouseLeave={() => setExpanded(null)}>
