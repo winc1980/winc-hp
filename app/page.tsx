@@ -2,7 +2,6 @@ import News from "@/components/index/news";
 import Projects from "@/components/index/projects";
 import Join from "@/components/index/join";
 import Activities from "@/components/index/activities";
-import Message from "@/components/index/message";
 import Hero from "@/components/index/hero";
 import LearnSection from "@/components/index/learn";
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
               <Projects />
               <Join />
               <News />
-              <Message />
             </div>
             <div className="grow-[1] border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed max-lg:hidden [--pattern-fg:var(--foreground)]/10"></div>
           </div>
