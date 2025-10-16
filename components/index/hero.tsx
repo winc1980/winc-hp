@@ -69,7 +69,7 @@ export default function Hero() {
 
   return (
     <section
-      className="flex flex-col w-full max-w-7xl justify-stretch lg:justify-center items-center lg:items-start lg:gap-12 min-h-screen py-16"
+      className="flex flex-col w-full max-w-7xl justify-stretch lg:justify-center items-center lg:items-start lg:gap-12 min-h-[70vh] py-16"
       ref={scope}
     >
       <div className="mt-24 lg:mt-8 mx-2 px-2 flex flex-col grow lg:grow-0">
