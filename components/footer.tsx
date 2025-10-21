@@ -35,18 +35,6 @@ export default function Footer() {
         </Link>
         <div className="flex flex-col lg:flex-row gap-4 w-full justify-around">
           <div className="flex flex-col items-start">
-            <p className="font-black text-xl py-4">Activities</p>
-            <Link href="#" className="p-2 text-sm font-semibold">
-              通常活動
-            </Link>
-            <Link href="#" className="p-2 text-sm font-semibold">
-              イベント
-            </Link>
-            <Link href="#" className="p-2 text-sm font-semibold">
-              ブログ
-            </Link>
-          </div>
-          <div className="flex flex-col items-start">
             <p className="font-black text-xl py-4">Projects</p>
             <Link href="/projects#apps" className="p-2 text-sm font-semibold">
               アプリ開発
@@ -56,17 +44,8 @@ export default function Footer() {
             </Link>
           </div>
           <div className="flex flex-col items-start">
-            <Link href="#" className="p-2 text-sm font-semibold">
-              ご入会希望の方へ
-            </Link>
-            <Link href="#" className="p-2 text-sm font-semibold">
-              他サークル・企業の方向け
-            </Link>
             <Link href="/contacts" className="p-2 text-sm font-semibold">
               お問い合わせ
-            </Link>
-            <Link href="#" className="p-2 text-sm font-semibold">
-              よくある質問
             </Link>
           </div>
         </div>
