@@ -27,7 +27,9 @@ export function ImageCarousel({ images: images }: { images: CmsImageType[] }) {
           <div className="embla__container">
             {images.map((image: CmsImageType, index) => (
               <div
-                className={`embla__slide flex basis-[90%] ${images.length > 3 ? 'lg:basis-1/2' : ''} min-w-0 justify-center px-1 lg:px-3`}
+                className={`embla__slide flex basis-[90%] ${
+                  images.length > 3 ? "lg:basis-1/2" : ""
+                } min-w-0 justify-center items-center px-1 lg:px-3`}
                 key={index}
               >
                 <Image
@@ -35,7 +37,7 @@ export function ImageCarousel({ images: images }: { images: CmsImageType[] }) {
                   alt={`${index}枚目のスクリーンショット`}
                   width={image.width}
                   height={image.height}
-                  className="h-[60vh] w-auto rounded-2xl"
+                  className="max-h-[50vh] lg:h-[70vh] w-auto rounded-2xl"
                 />
               </div>
             ))}

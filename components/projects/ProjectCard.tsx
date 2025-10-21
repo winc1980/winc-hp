@@ -72,7 +72,9 @@ export const ProjectCard = ({ project, className }: { project: ProjectType, clas
               </p>
               <span className="gsap-lines">{project.title}</span>
             </h3>
-            <p className="text-md py-4 reveal-on-scroll">{project.description}</p>
+            <div
+              dangerouslySetInnerHTML={{ __html: project.description }}
+              className="text-md py-4 reveal-on-scroll max-h-40 truncate" />
           </div>
         </div>
       </article>
