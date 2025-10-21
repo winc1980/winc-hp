@@ -6,8 +6,9 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/all";
 import Image from "next/image";
+import { MicroCMSImage } from "microcms-js-sdk";
 
-export default function LearnSection() {
+export default function LearnSection({description,image}: {description:string,image:MicroCMSImage}) {
   gsap.registerPlugin(TextPlugin);
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(SplitText);
@@ -70,176 +71,52 @@ export default function LearnSection() {
 
   return (
     <div className="divide-effect flex flex-col justify-center" ref={scope}>
-      <section className="gsap-trigger w-full max-w-7xl py-8 relative">
-        <div className="flex flex-wrap gap-5 justify-center py-8">
-          <p
-            className={`uppercase text-xl font-bold ${
-              tabIndex === 0 && "border-b-2"
-            }`}
-            onClick={() => setTabIndex(0)}
-          >
-            Learn
-          </p>
-          <p
-            className={`uppercase text-xl font-bold ${
-              tabIndex === 1 && "border-b-2"
-            }`}
-            onClick={() => setTabIndex(1)}
-          >
-            Build
-          </p>
-          <p
-            className={`uppercase text-xl font-bold ${
-              tabIndex === 2 && "border-b-2"
-            }`}
-            onClick={() => setTabIndex(2)}
-          >
-            Change
-          </p>
+      <section className="gsap-trigger w-full max-w-7xl py-32 relative">
+        <div className="divide-effect">
+          <h2 className="overflow-hidden text-6xl lg:text-7xl font-light w-full">
+            <div className="gsap gsap-chars uppercase font-bold palt">
+              The Joy of Creating
+            </div>
+          </h2>
         </div>
-        {tabIndex === 0 && (
-          <>
-            <h2 className="overflow-hidden text-5xl lg:text-7xl font-light w-full divide-effect">
-              <p className="font-extrabold text-xl px-1">ともに学ぶ</p>
-              <div className="gsap gsap-chars uppercase text-7xl font-bold palt">
-                Learn together
-              </div>
-            </h2>
-            <div className="relative overflow-hidden text-lg text-foreground my-8 divide-effect overflow-hidden">
-              <div className="relative z-10 gsap gsap-lines text-sm/8 lg:text-base/12 font-bold [&>span]:inline-b lock [&_span]:bg-background">
-                <p className="text-4xl/16 *:inline-block *:break-keep">
-                  <span>コードを書いて、</span>
-                  <span>未来をえがく。</span>
-                </p>
-                <span>アプリチームでは起業やビジネス創出を目標として</span>
-                <span>最先端技術を用いたアプリ開発を行います。</span>
-                <br />
-                <span>実際のシステム開発現場で用いられる</span>
-                <span>プロジェクト管理の方法を採用し、</span>
-                <span>3〜5人のチームでアプリ開発を行います。</span>
-                <br />
-                <span>プロジェクトに関わるメンバーのマネジメントが、</span>
-                <span>あなたにとってエンジニア以外の進路にも</span>
-                <span>活きる経験を生みます。</span>
-                <br />
-                <span>ユーザー体験の向上やコスト削減を目指し、</span>
-                <span>ステークホルダーとの交渉や</span>
-                <span>関係性の構築にも取り組みます。</span>
-                <br />
-                <span>その過程で得た知見が、</span>
-                <span>経営者的視点の獲得につながります。</span>
-                <br />
-                <span>個人開発では得られないチーム開発のノウハウを学び、</span>
-                <span>就職後にも生きる経験と繋がりを得ることができます。</span>
-              </div>
-              <div className="border-10 h-full absolute right-0 bottom-1/2 translate-y-1/2">
+        <div className="divide-effect">
+          <div className="relative overflow-hidden text-lg text-foreground py-8">
+            <div className="relative z-10 gsap gsap-lines text-sm/8 lg:text-base/12 font-bold [&>span]:inline-b lock [&_span]:bg-background">
+              <p className="text-4xl/16 *:inline-block *:break-keep">
+                <span className="palt">「創る」を</span>
+                <span className="palt">楽しむ。</span>
+              </p>
+              <div className="lg:hidden mask-[url(/masks/brushes/1.png)] mask-no-repeat mask-center mask-contain">
                 <Image
-                  src="/test-images/Gemini_Generated_Image_b0pgxyb0pgxyb0pg.png"
-                  alt="Learn Section Image"
-                  width={600}
-                  height={600}
-                  className="h-full object-cover"
+                  src={image.url}
+                  alt={image.alt || "活動イメージ画像"}
+                  width={image.width}
+                  height={image.height}
+                  className="h-full w-fit aspect-video object-cover"
                 />
               </div>
+              {description.split("\n\n").map((block: string, index: number) => (
+                <div key={index}>
+                  {block.split("\n").map((line: string, lineIndex: number) => (
+                    <span key={lineIndex} className="reveal-on-scroll">
+                      {line}
+                    </span>
+                  ))}
+                  <br />
+                </div>
+              ))}
             </div>
-          </>
-        )}
-
-        {tabIndex === 1 && (
-          <>
-            <h2 className="overflow-hidden text-5xl lg:text-7xl font-light w-full divide-effect">
-              <p className="font-extrabold text-xl px-1">ともに創る</p>
-              <div className="gsap gsap-chars uppercase text-7xl font-bold palt">
-                Build together
-              </div>
-            </h2>
-            <div className="relative overflow-hidden text-lg text-foreground my-8 divide-effect overflow-hidden">
-              <div className="relative z-10 gsap gsap-lines text-sm/8 lg:text-base/12 font-bold [&>span]:inline-b lock [&_span]:bg-background">
-                <p className="text-4xl/16 *:inline-block *:break-keep">
-                  <span>コードを書いて、</span>
-                  <span>未来をえがく。</span>
-                </p>
-                <span>アプリチームでは起業やビジネス創出を目標として</span>
-                <span>最先端技術を用いたアプリ開発を行います。</span>
-                <br />
-                <span>実際のシステム開発現場で用いられる</span>
-                <span>プロジェクト管理の方法を採用し、</span>
-                <span>3〜5人のチームでアプリ開発を行います。</span>
-                <br />
-                <span>プロジェクトに関わるメンバーのマネジメントが、</span>
-                <span>あなたにとってエンジニア以外の進路にも</span>
-                <span>活きる経験を生みます。</span>
-                <br />
-                <span>ユーザー体験の向上やコスト削減を目指し、</span>
-                <span>ステークホルダーとの交渉や</span>
-                <span>関係性の構築にも取り組みます。</span>
-                <br />
-                <span>その過程で得た知見が、</span>
-                <span>経営者的視点の獲得につながります。</span>
-                <br />
-                <span>個人開発では得られないチーム開発のノウハウを学び、</span>
-                <span>就職後にも生きる経験と繋がりを得ることができます。</span>
-              </div>
-              <div className="border-10 h-full absolute right-0 bottom-1/2 translate-y-1/2">
-                <Image
-                  src="/test-images/Gemini_Generated_Image_b0pgxyb0pgxyb0pg.png"
-                  alt="Learn Section Image"
-                  width={600}
-                  height={600}
-                  className="h-full object-cover"
-                />
-              </div>
+            <div className="hidden lg:block mask-[url(/masks/brushes/1.png)] mask-no-repeat mask-center mask-contain h-full absolute right-0 bottom-1/2 translate-y-1/2">
+              <Image
+                src={image.url}
+                alt={image.alt || "活動イメージ画像"}
+                width={image.width}
+                height={image.height}
+                className="h-full w-fit aspect-video object-cover"
+              />
             </div>
-          </>
-        )}
-
-        {tabIndex === 2 && (
-          <>
-            <h2 className="overflow-hidden text-5xl lg:text-7xl font-light w-full divide-effect">
-              <p className="font-extrabold text-xl px-1">ともに変える</p>
-              <div className="gsap gsap-chars uppercase text-7xl font-bold palt">
-                Change together
-              </div>
-            </h2>
-            <div className="relative overflow-hidden text-lg text-foreground my-8 divide-effect overflow-hidden">
-              <div className="relative z-10 gsap gsap-lines text-sm/8 lg:text-base/12 font-bold [&>span]:inline-b lock [&_span]:bg-background">
-                <p className="text-4xl/16 *:inline-block *:break-keep">
-                  <span>コードを書いて、</span>
-                  <span>未来をえがく。</span>
-                </p>
-                <span>アプリチームでは起業やビジネス創出を目標として</span>
-                <span>最先端技術を用いたアプリ開発を行います。</span>
-                <br />
-                <span>実際のシステム開発現場で用いられる</span>
-                <span>プロジェクト管理の方法を採用し、</span>
-                <span>3〜5人のチームでアプリ開発を行います。</span>
-                <br />
-                <span>プロジェクトに関わるメンバーのマネジメントが、</span>
-                <span>あなたにとってエンジニア以外の進路にも</span>
-                <span>活きる経験を生みます。</span>
-                <br />
-                <span>ユーザー体験の向上やコスト削減を目指し、</span>
-                <span>ステークホルダーとの交渉や</span>
-                <span>関係性の構築にも取り組みます。</span>
-                <br />
-                <span>その過程で得た知見が、</span>
-                <span>経営者的視点の獲得につながります。</span>
-                <br />
-                <span>個人開発では得られないチーム開発のノウハウを学び、</span>
-                <span>就職後にも生きる経験と繋がりを得ることができます。</span>
-              </div>
-              <div className="border-10 h-full absolute right-0 bottom-1/2 translate-y-1/2">
-                <Image
-                  src="/test-images/Gemini_Generated_Image_b0pgxyb0pgxyb0pg.png"
-                  alt="Learn Section Image"
-                  width={600}
-                  height={600}
-                  className="h-full object-cover"
-                />
-              </div>
-            </div>
-          </>
-        )}
+          </div>
+        </div>
       </section>
     </div>
   );

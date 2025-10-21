@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="flex flex-col justify-center items-center px-4 gap-16 bg-gradient-to-b from-transparent to-background divide-effect">
-      <section className="flex flex-col lg:flex-row justify-around items-center w-full max-w-7xl text-end py-6 border-b-2">
+      <section className="flex flex-col lg:flex-row justify-around items-center w-full max-w-7xl text-end py-6 border-b border-foreground">
         <p className="text-sm font-semibold p-3 text-gray-600 w-[-webkit-fill-available] lg:w-auto font-mono">
           Affiliated with
         </p>
@@ -24,50 +24,48 @@ export default function Footer() {
           className="p-0.5"
         />
       </section>
-      <section
-        className="flex gap-16 justify-between w-full max-w-7xl py-16 pr-3"
-      >
+      <section className="flex gap-16 justify-between w-full max-w-7xl py-16 pr-3">
         <Link href="/">
           <Image
             src="/WINC-classic-designs/logo.svg"
             width={180}
             height={24}
-            alt="WINC: アプリチーム"
+            alt="WINC - 早稲田コンピューター研究会"
           />
         </Link>
         <div className="flex w-full justify-around">
           <div className="flex flex-col items-start">
             <p className="font-black text-xl py-4">Activities</p>
-            <Link href="/news" className="p-2 text-sm font-semibold">
+            <Link href="#" className="p-2 text-sm font-semibold">
               通常活動
             </Link>
-            <Link href="/members" className="p-2 text-sm font-semibold">
+            <Link href="#" className="p-2 text-sm font-semibold">
               イベント
             </Link>
-            <Link href="/projects" className="p-2 text-sm font-semibold">
+            <Link href="#" className="p-2 text-sm font-semibold">
               ブログ
             </Link>
           </div>
           <div className="flex flex-col items-start">
             <p className="font-black text-xl py-4">Projects</p>
-            <Link href="/news" className="p-2 text-sm font-semibold">
+            <Link href="/projects#apps" className="p-2 text-sm font-semibold">
               アプリ開発
             </Link>
-            <Link href="/members" className="p-2 text-sm font-semibold">
+            <Link href="/projects#web" className="p-2 text-sm font-semibold">
               ホームページ制作
             </Link>
           </div>
           <div className="flex flex-col items-start">
-            <Link href="/news" className="p-2 text-sm font-semibold">
+            <Link href="#" className="p-2 text-sm font-semibold">
               ご入会希望の方へ
             </Link>
-            <Link href="/members" className="p-2 text-sm font-semibold">
+            <Link href="#" className="p-2 text-sm font-semibold">
               他サークル・企業の方向け
             </Link>
-            <Link href="/projects" className="p-2 text-sm font-semibold">
+            <Link href="/contacts" className="p-2 text-sm font-semibold">
               お問い合わせ
             </Link>
-            <Link href="/projects" className="p-2 text-sm font-semibold">
+            <Link href="#" className="p-2 text-sm font-semibold">
               よくある質問
             </Link>
           </div>
@@ -92,7 +90,7 @@ export default function Footer() {
           </Link>
         </div>
       </section>
-      <section className="flex justify-between items-center w-full max-w-7xl text-end py-16 border-t-2 border-gray-100">
+      <section className="flex justify-between items-center w-full max-w-7xl text-end py-16 border-t border-foreground">
         <p className="text-left text-sm text-gray-400 px-3 font-mono">
           Created and developed only by waseda students. <br />
           No other company, organization, or Waseda University is related.

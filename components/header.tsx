@@ -11,10 +11,10 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollDirection, isScrollTop] = useScrollStatus();
   const onNavigate = () => setIsOpen(false);
-  const [expanded, setExpanded] = useState<1 | 2 | null>(null);
+  const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
-    <div onMouseLeave={() => setExpanded(null)}>
+    <div onMouseLeave={() => setExpanded(false)}>
       <div
         id="mobile-menu-bg"
         className={`${isOpen ? "opacity-100 z-5" : "opacity-0 -z-1"
@@ -32,24 +32,6 @@ export default function Header() {
         >
           <div className="flex flex-col h-full justify-between pt-48 pb-24">
             <ul className="flex flex-col gap-4 text-sm font-medium px-8">
-              <li className="font-bold text-muted-foreground">活動</li>
-              <ul className="pl-4 space-y-2">
-                <li>
-                  <Link onNavigate={onNavigate} href="/activities">
-                    通常活動
-                  </Link>
-                </li>
-                <li>
-                  <Link onNavigate={onNavigate} href="/events">
-                    イベント
-                  </Link>
-                </li>
-                <li>
-                  <Link onNavigate={onNavigate} href="/blog">
-                    ブログ
-                  </Link>
-                </li>
-              </ul>
               <li className="font-bold text-muted-foreground mt-4">プロジェクト</li>
               <ul className="pl-4 space-y-2">
                 <li>
@@ -63,9 +45,6 @@ export default function Header() {
                   </Link>
                 </li>
               </ul>
-              <Link onNavigate={onNavigate} href="/external">
-                <li>他サークル・企業の方向け</li>
-              </Link>
             </ul>
             <footer className="flex flex-col text-zinc-500 text-xs px-8 my-8 gap-8">
               <div className="flex justify-center flex-wrap max-w-7xl gap-8">
@@ -128,19 +107,14 @@ export default function Header() {
           )}
           <div className="hidden lg:block">
             <div className="flex gap-6 items-center uppercase font-bold">
-              <div className="hover:border-b-2 transition-all" onMouseEnter={() => setExpanded(1)}>
-                <Link href="/members">
-                  <div>活動</div>
-                </Link>
-              </div>
-              <div className="hover:border-b-2 transition-all" onMouseEnter={() => setExpanded(2)}>
+              <div className="hover:border-b-2 border-foreground transition-all" onMouseEnter={() => setExpanded(true)}>
                 <Link href="/projects">
-                  <div>プロジェクト</div>
+                  <div>プロジェクト・制作実績</div>
                 </Link>
               </div>
-              <div className="hover:border-b-2 transition-all" onMouseEnter={() => setExpanded(null)}>
-                <Link href="/external">
-                  <div>他サークル・企業の方向け</div>
+              <div className="hover:border-b-2 border-foreground transition-all" onMouseEnter={() => setExpanded(false)}>
+                <Link href="/contacts">
+                  <div>お問い合わせ</div>
                 </Link>
               </div>
               <div>
@@ -180,19 +154,7 @@ export default function Header() {
           </div>
         </div>
         <div className={`fixed hidden md:block top-0 left-0 w-full border-b-4 p-8 transition-all duration-500 ${expanded ? "h-[50vh] border-foreground bg-background" : "h-0 border-transparent bg-transparent"}`}>
-          {expanded === 1 && (
-            <div className="w-full max-w-7xl mx-auto h-full flex gap-8 pt-16">
-              <Link href="/activities" className="grow-3 bg-black/10 rounded-xl h-full grow flex items-center p-8 bg-cover hover:bg-  bg-[url(/test-images/Gemini_Generated_Image_b0pgxyb0pgxyb0pg.png)]">
-                <p className="w-fit text-2xl font-semibold bg-background p-2 rounded">通常活動</p>
-              </Link>
-              <Link href="/events" className="grow-2 bg-black/10 rounded-xl h-full grow flex items-center p-8 bg-cover bg-[url(/test-images/Gemini_Generated_Image_b0pgxyb0pgxyb0pg.png)]">
-                <p className="w-fit text-2xl font-semibold bg-background p-2 rounded">イベント</p>
-              </Link>
-              <Link href="/blog" className="grow-1 bg-black/10 rounded-xl h-full grow flex items-center p-8 bg-cover bg-[url(/test-images/Gemini_Generated_Image_b0pgxyb0pgxyb0pg.png)]">
-                <p className="w-fit text-2xl font-semibold bg-background p-2 rounded">ブログ</p>
-              </Link>
-            </div>)}
-          {expanded === 2 && (
+          {expanded && (
             <div className="w-full max-w-7xl mx-auto h-full flex gap-8 pt-16">
               <Link href="/projects#apps" className="grow-3 bg-black/10 rounded-xl h-full grow flex items-center p-8 bg-cover hover:bg-  bg-[url(/test-images/Gemini_Generated_Image_b0pgxyb0pgxyb0pg.png)]">
                 <p className="w-fit text-2xl font-semibold bg-background p-2 rounded">アプリ開発</p>

@@ -1,4 +1,4 @@
-import { ContactFormSection } from "@/components/contact/ContactFormSection";
+import { ContactFormSection } from "@/components/contacts/ContactFormSection";
 import PageHeader from "@/components/page-header";
 
 export default function Home() {
