@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="flex flex-col justify-center items-center px-4 gap-16 bg-gradient-to-b from-transparent to-background divide-effect">
-      <section className="flex flex-col lg:flex-row justify-around items-center w-full max-w-7xl text-end py-6 border-b border-foreground">
+      <section className="flex flex-col lg:flex-row justify-around items-center w-full max-w-7xl text-center lg:text-end py-6 border-b border-gray-400">
         <p className="text-sm font-semibold p-3 text-gray-600 w-[-webkit-fill-available] lg:w-auto font-mono">
           Affiliated with
         </p>
@@ -24,16 +24,16 @@ export default function Footer() {
           className="p-0.5"
         />
       </section>
-      <section className="flex gap-16 justify-between w-full max-w-7xl py-16 pr-3">
+      <section className="flex flex-col lg:flex-row gap-8 lg:gap-16 justify-between w-full max-w-7xl lg:py-16 px-4 lg:px-0 lg:pr-3">
         <Link href="/">
           <Image
             src="/WINC-classic-designs/logo.svg"
             width={180}
-            height={24}
+            height={64}
             alt="WINC - 早稲田コンピューター研究会"
           />
         </Link>
-        <div className="flex w-full justify-around">
+        <div className="flex flex-col lg:flex-row gap-4 w-full justify-around">
           <div className="flex flex-col items-start">
             <p className="font-black text-xl py-4">Activities</p>
             <Link href="#" className="p-2 text-sm font-semibold">
@@ -90,7 +90,7 @@ export default function Footer() {
           </Link>
         </div>
       </section>
-      <section className="flex justify-between items-center w-full max-w-7xl text-end py-16 border-t border-foreground">
+      <section className="flex justify-between items-center w-full max-w-7xl text-end py-16 border-t border-gray-400">
         <p className="text-left text-sm text-gray-400 px-3 font-mono">
           Created and developed only by waseda students. <br />
           No other company, organization, or Waseda University is related.
