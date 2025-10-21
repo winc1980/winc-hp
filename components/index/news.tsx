@@ -4,6 +4,7 @@ import { NewsType } from "@/types/News";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import SectionHeading from "./section-heading";
+import { PrimaryButton } from "../buttons/PrimaryButton";
 
 async function getNews() {
   const data = await client.get({
@@ -15,13 +16,11 @@ async function getNews() {
 export default async function News() {
   const news = await getNews();
 
-  console.log(news[0].description);
-
   return (
     <>
       <div className="divide-effect flex flex-col justify-center">
-        <section className="border-t border-b border-white/10 w-full max-w-7xl py-32 flex flex-col gap-20">
-          <SectionHeading titleEn="news;" titleJa="新着情報" />
+        <section className="border-t border-b border-foreground/10 w-full max-w-7xl py-32 flex flex-col gap-20">
+          <SectionHeading titleEn="news" titleJa="新着情報" />
           <div className="min-h-[80vh] divide-effect flex flex-col items-center">
             {news.map((newsContent: NewsType, i: number) => {
               if (i < 3)
@@ -31,10 +30,11 @@ export default async function News() {
             })}
             <Link
               href="/news/"
-              className="flex gap-1  hover:gap-3  p-4 rounded-xs border border-foreground w-fit bg-background/80 hover:bg-foreground/30 transition duration-300"
             >
-              もっと見る
-              <Plus />
+              <PrimaryButton>
+                もっと見る
+                <Plus />
+              </PrimaryButton>
             </Link>
           </div>
         </section>

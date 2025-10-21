@@ -26,13 +26,18 @@ export function ImageCarousel({ images: images }: { images: CmsImageType[] }) {
         <div className="embla bg-background" ref={emblaRef}>
           <div className="embla__container">
             {images.map((image: CmsImageType, index) => (
-              <div className="embla__slide flex basis-[90%] lg:basis-1/2 min-w-0 justify-center px-1 lg:px-3" key={index}>
+              <div
+                className={`embla__slide flex basis-[90%] ${
+                  images.length > 3 ? "lg:basis-1/2" : ""
+                } min-w-0 justify-center items-center px-1 lg:px-3`}
+                key={index}
+              >
                 <Image
                   src={image.url}
                   alt={`${index}枚目のスクリーンショット`}
                   width={image.width}
                   height={image.height}
-                  className="max-h-[60vh] w-auto rounded-2xl"
+                  className="max-h-[50vh] lg:h-[70vh] w-auto rounded-2xl"
                 />
               </div>
             ))}
@@ -54,8 +59,9 @@ export function ImageCarousel({ images: images }: { images: CmsImageType[] }) {
             <DotButton
               key={index}
               onClick={() => onDotButtonClick(index)}
-              className={`${index === selectedIndex ? "bg-foreground" : "bg-foreground/50"
-                } w-2 h-2 cursor-pointer rounded-xl`}
+              className={`${
+                index === selectedIndex ? "bg-foreground" : "bg-foreground/50"
+              } w-2 h-2 cursor-pointer rounded-xl`}
             />
           ))}
         </div>

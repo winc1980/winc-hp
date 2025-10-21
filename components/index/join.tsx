@@ -8,8 +8,9 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/all";
 import SectionHeading from "./section-heading";
+import { PrimaryButton } from "../buttons/PrimaryButton";
 
-export default function Join() {
+export default function Join({heading,body}: { heading: string; body: string }) {
   gsap.registerPlugin(TextPlugin);
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(SplitText);
@@ -57,8 +58,8 @@ export default function Join() {
 
   return (
     <div className="divide-effect flex flex-col" ref={scope}>
-      <section className="gsap-trigger border-t border-b border-white/10 w-full max-w-7xl py-32 relative">
-        <SectionHeading titleEn="join.us" titleJa="新歓情報" />
+      <section className="gsap-trigger border-t border-b border-foreground/10 w-full max-w-7xl py-32 relative">
+        <SectionHeading titleEn="join us" titleJa="新歓情報" />
         <h2 className="overflow-hidden text-[42px] lg:text-7xl font-light w-full divide-effect">
           <div className="gsap gsap-chars ">
             you{" "}
@@ -80,18 +81,16 @@ export default function Join() {
         <div className="overflow-hidden text-lg text-foreground my-8 divide-effect">
           <div className="gsap gsap-lines text-sm/8 lg:text-base/12">
             <p className="text-3xl/12 lg:text-4xl/16 font-light">
-              今年度の新入生向け企画は終了しました。
+              {heading}
             </p>
-            サークルへの参加は常時受け入れております。
-            <br />
-            通常活動日にお越しください。
+            <p dangerouslySetInnerHTML={{ __html: body.replace(/\n/g, "<br />") }} />
           </div>
         </div>
-        <Link href="https://secure.register.winc.ne.jp/" className="divide-effect">
-          <div className="flex gap-1  hover:gap-3  p-4 rounded-2xl duration-300 button-slider from-purple-500 to-purple-500 w-fit">
+        <Link href="https://secure.register.winc.ne.jp/">
+          <PrimaryButton>
             新入生向け情報
             <ArrowRight />
-          </div>
+          </PrimaryButton>
         </Link>
       </section>
     </div>

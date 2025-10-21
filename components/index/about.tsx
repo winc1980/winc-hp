@@ -68,7 +68,7 @@ export default function About() {
 
   return (
     <div className="divide-effect flex flex-col justify-center" ref={scope}>
-      <section className="gsap-trigger border-t border-b border-white/10 w-full max-w-7xl py-32 relative">
+      <section className="gsap-trigger border-t border-b border-foreground/10 w-full max-w-7xl py-32 relative">
         <h2 className="overflow-hidden text-5xl lg:text-7xl font-light w-full divide-effect">
           <p className="font-mono text-sm opacity-60 px-1">About(us);</p>
           <div className="gsap gsap-chars">

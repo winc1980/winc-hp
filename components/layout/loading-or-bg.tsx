@@ -19,15 +19,15 @@ export default function LoadingOrBg() {
       clearTimeout(timeoutId)
     }
   }, [])
-  return <>
-
-    {showLoadscreen ? <Loading disabled={loaded} /> : <></>}
-    <div
-      id="homepage-background"
-      className="fixed h-screen w-full -z-1 top-0 mix-blend-multiply"
-    ></div>
-    <Script id="script">
-      {`VANTA.NET({
+  return (
+    <>
+      {showLoadscreen ? <Loading disabled={loaded} /> : <></>}
+      <div
+        id="homepage-background"
+        className="fixed h-[calc(100vh_+_200px)] w-full -z-1 top-[-100px]"
+      ></div>
+      <Script id="script">
+        {`VANTA.NET({
               el: "#homepage-background",
               mouseControls: true,
               touchControls: true,
@@ -36,9 +36,10 @@ export default function LoadingOrBg() {
               minWidth: 200.00,
               scale: 1.00,
               scaleMobile: 1.00,
-              color: 0xffffff,
-              backgroundColor: 0x0
+              color: 0x0888888,
+              backgroundColor: 0x0f8efe0
             });`}
-    </Script>
-  </>
+      </Script>
+    </>
+  );
 }

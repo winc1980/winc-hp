@@ -3,23 +3,56 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col justify-center items-center px-4 py-8 gap-8 bg-gradient-to-b from-transparent to-black">
-      <section
-        className="flex items-center
-          gap-8 justify-between w-full max-w-7xl mt-16 pr-3"
-      >
+    <footer className="flex flex-col justify-center items-center px-4 gap-16 bg-gradient-to-b from-transparent to-background divide-effect">
+      <section className="flex flex-col lg:flex-row justify-around items-center w-full max-w-7xl text-center lg:text-end py-6 border-b border-gray-400">
+        <p className="text-sm font-semibold p-3 text-gray-600 w-[-webkit-fill-available] lg:w-auto font-mono">
+          Affiliated with
+        </p>
+
+        <Image
+          src="/affiliates/gmo-pepabo.svg"
+          width={200}
+          height={31}
+          alt="GMOペパボ株式会社"
+          className="p-0.5"
+        />
+        <Image
+          src="/affiliates/progate.png"
+          width={200}
+          height={31}
+          alt="Progate株式会社"
+          className="p-0.5"
+        />
+      </section>
+      <section className="flex flex-col lg:flex-row gap-8 lg:gap-16 justify-between w-full max-w-7xl lg:py-16 px-4 lg:px-0 lg:pr-3">
         <Link href="/">
           <Image
-            src="/app-team-logo-white.svg"
-            width={280}
-            height={48}
-            alt="WINC: アプリチーム"
+            src="/WINC-classic-designs/logo.svg"
+            width={180}
+            height={64}
+            alt="WINC - 早稲田コンピューター研究会"
           />
         </Link>
+        <div className="flex flex-col lg:flex-row gap-4 w-full justify-around">
+          <div className="flex flex-col items-start">
+            <p className="font-black text-xl py-4">Projects</p>
+            <Link href="/projects#apps" className="p-2 text-sm font-semibold">
+              アプリ開発
+            </Link>
+            <Link href="/projects#web" className="p-2 text-sm font-semibold">
+              ホームページ制作
+            </Link>
+          </div>
+          <div className="flex flex-col items-start">
+            <Link href="/contacts" className="p-2 text-sm font-semibold">
+              お問い合わせ
+            </Link>
+          </div>
+        </div>
         <div className="flex max-w-7xl gap-8">
           <Link href="https://x.com/WINC_waseda">
             <Image
-              src="/external-assets/x-logo/logo-white.png"
+              src="/external-assets/x-logo/logo-black.png"
               width={31}
               height={31}
               alt="公式X - @WINC_waseda"
@@ -36,33 +69,15 @@ export default function Footer() {
           </Link>
         </div>
       </section>
-      <section className="flex flex-col items-start max-w-7xl w-full">
-        <Link href="/news" className="p-2 text-sm font-semibold">
-          ニュース
-        </Link>
-        <Link href="/members" className="p-2 text-sm font-semibold">
-          メンバー紹介
-        </Link>
-        <Link href="/projects" className="p-2 text-sm font-semibold">
-          プロジェクト
-        </Link>
-        <Link href="" className="p-3 text-sm font-semibold">
-          プライバシーポリシー
-        </Link>
-      </section>
-      <section className="flex justify-between items-center w-full max-w-7xl text-end py-6 border-t-2 border-gray-100">
-        <div>
-          <Image
-            src="/winc-logo-white.png"
-            width={48}
-            height={36}
-            alt="WINC"
-            className="m-4"
-          />
-          <p className="text-left text-sm text-gray-400 px-3 font-mono">Created and developed only by waseda students. <br />No other company, organization, or Waseda University is related.</p>
-        </div>
-        <p className="text-sm font-semibold p-3 text-gray-600 w-[-webkit-fill-available] lg:w-auto font-mono">© 2025 WINC: App Team</p>
+      <section className="flex justify-between items-center w-full max-w-7xl text-end py-16 border-t border-gray-400">
+        <p className="text-left text-sm text-gray-400 px-3 font-mono">
+          Created and developed only by waseda students. <br />
+          No other company, organization, or Waseda University is related.
+        </p>
+        <p className="text-sm font-semibold p-3 text-gray-600 w-[-webkit-fill-available] lg:w-auto font-mono">
+          © 2025 WINC
+        </p>
       </section>
     </footer>
-  )
+  );
 }

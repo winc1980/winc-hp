@@ -6,7 +6,7 @@ export default function Loading({ disabled }: { disabled: boolean }) {
           <path d="M118.46,165.21c18.18,85.02,65.87,115.84,65.87,115.84,9.86-121.17-24.06-193.92-24.06-193.92l-.89-40.03C138.6-17.05,69.2,3.94,63.31,39.99c-19.99,2.36-57.52,18.38-57.52,18.38,0,0,72.04-5.12,82.39,25.85-62.96,86.74-66.99,145.48,9.77,197.67M48.49,282.23l151.51-.29" />
         </g>
       </svg>
-      <svg className="**:fill-white w-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.39 11.71">
+      <svg className="**:fill-foreground w-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.39 11.71">
         <g>
           <g>
             <path d="M0,9.25V1.74h1.15v6.64h4.04v.86H0Z" />

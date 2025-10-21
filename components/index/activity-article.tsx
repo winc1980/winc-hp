@@ -6,21 +6,14 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/all";
 import Image from "next/image";
+import { ActivityType } from "@/types/basics";
 
 export default function ActivityArticle({
   className,
-  imageSrc,
-  imageAlt,
-  titleEn,
-  titleJa,
-  body,
+  activity
 }: {
-  className: string;
-  imageSrc: string;
-  imageAlt: string;
-  titleEn: string;
-  titleJa: string;
-  body: JSX.Element;
+    className: string;
+    activity: ActivityType;
 }) {
   gsap.registerPlugin(TextPlugin);
   gsap.registerPlugin(ScrollTrigger);
@@ -68,23 +61,24 @@ export default function ActivityArticle({
   return (
     <article
       ref={scope}
-      className={`${className} bg-foreground/10 border border-white/10 grow`}
+      className={`${className} bg-foreground/10 border border-foreground/10 grow`}
     >
       <div className="bg-background rounded-2xl p-4 m-2">
         <Image
-          src={imageSrc}
-          alt={imageAlt}
+          src={activity.icon.url}
+          alt={activity.title}
           className="w-fit h-40 object-contain reveal-on-scroll opacity-50"
           width={384}
           height={384}
         />
         <h3 className="text-3xl pt-8 font-light w-full gsap-lines">
-          <p className="font-mono text-sm opacity-60">{titleEn}</p>
-          {titleJa}
+          <p className="font-mono text-sm opacity-60">{activity.title_en}</p>
+          {activity.title}
         </h3>
-        <p className="text-md py-4 reveal-on-scroll">
-          {body}
-        </p>
+        <p
+          className="text-md py-4 reveal-on-scroll"
+          dangerouslySetInnerHTML={{ __html: activity.body.replace(/\n/g, "<br />") }}
+        />
       </div>
     </article>
   );
