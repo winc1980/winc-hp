@@ -3,7 +3,6 @@ import PageSteper from "@/components/projects/detail/PageSteper";
 import ProjectDetailContainer from "@/components/projects/detail/ProjectDetailContainer";
 import { client } from "@/libs/microcms";
 import { ProjectType } from "@/types/Project";
-import { parseTech } from "@/utils/cms/parseTech";
 
 async function getProject(id: string): Promise<ProjectType> {
   const data = await client.get({
@@ -28,8 +27,7 @@ export default async function ProjectDetail({
           titleJa={project.title}
           titleEn={
             (project.completeDate != null ? "Released" : "In development") +
-            " / " +
-            parseTech(project.technologies)[0].name
+            (project.technologies[0] ? ` / ${project.technologies[0].name}` : '')
           }
           desc={<PageSteper pageTitle={project.title} className="my-4" />}
         />

@@ -1,12 +1,17 @@
-import { CmsImageType } from "./CmsImage";
+import { MicroCMSImage } from "microcms-js-sdk";
 import { MemberType } from "./Member";
+
+export interface TechnologyType {
+    name: string;
+    icon: MicroCMSImage;
+  }
 
 export interface ProjectType {
     id: string;
     title: string;
     description: string;
-    images: CmsImageType[];
-    technologies: string;
+    images: MicroCMSImage[];
+    technologies: TechnologyType[];
     members: MemberType[];
     completeDate: Date;
   }
