@@ -130,11 +130,11 @@
   }
 
   .button-slider:hover {
-    background-position: 0 0;;
+    background-position: 0 0;
     color: #000;
   }
 
-    .button-slider-vertical {
+  .button-slider-vertical {
     background-image: linear-gradient(
       180deg,
       var(--foreground) 0,
@@ -198,10 +198,11 @@
 }
 
 body {
-  font-family: var(--default-sansserif), var(--font-noto-sans-jp), Arial,
-    Helvetica, sans-serif;
+  font-family:
+    var(--default-sansserif), var(--font-noto-sans-jp), Arial, Helvetica,
+    sans-serif;
   overflow-x: hidden;
-  overscroll-behavior: none;
+  overscroll-behavior: auto;
 }
 
 /* カルーセル用 */
