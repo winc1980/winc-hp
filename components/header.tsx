@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useScrollStatus } from "@/hooks/scroll-status";
 import { PrimaryButton } from "./buttons/PrimaryButton";
 
-export default function Header() {
+export default function Header(data:any) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollDirection, isScrollTop] = useScrollStatus();
   const onNavigate = () => setIsOpen(false);
@@ -145,7 +145,7 @@ export default function Header() {
               <div className="min-w-[166px]">
                 <Link href="https://secure.register.winc.ne.jp/">
                   <PrimaryButton>
-                    秋入会受付中
+                    {data.bxmdbx517zgqf ? data.bxmdbx517zgqf : "入会申し込み"}
                     <ArrowRight />
                   </PrimaryButton>
                 </Link>

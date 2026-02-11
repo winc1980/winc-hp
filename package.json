@@ -6,10 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "rm -rf .next/cache/fetch-cache && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "download-notion-images": "node scripts/download-notion-images.cjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@notionhq/client": "^3.0.0",
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

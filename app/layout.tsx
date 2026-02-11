@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Noto_Sans_JP, Geist_Mono, Funnel_Display } from "next/font/google";
 import "./globals.css";
+import { client } from "@/lib/microcms";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Script from "next/script";
@@ -31,6 +32,13 @@ export const metadata: Metadata = {
   },
 };
 
+async function getHeaderData() {
+  const data = await client.get({
+    endpoint: "header",
+  })
+  return data.contents;
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,7 +53,7 @@ export default function RootLayout({
         className={`${notoSansJp.variable} ${geistMono.variable} ${sans.variable} antialiased min-h-screen bg-gradient-to-br from-blue-500 to-rose-500 z-0 relative`}
       >
         <Script
-          src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"
+          src="https://cdnjs.cloudflare.com/ajax/lib/three.js/r134/three.min.js"
           strategy="beforeInteractive"
         />
         <Script

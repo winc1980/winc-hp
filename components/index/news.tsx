@@ -1,5 +1,5 @@
 import NewsArticle from "@/components/news-article";
-import { client } from "@/libs/microcms";
+import { client } from "@/lib/microcms";
 import { NewsType } from "@/types/News";
 import { Plus } from "lucide-react";
 import Link from "next/link";

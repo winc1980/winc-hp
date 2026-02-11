@@ -1,5 +1,5 @@
 import MemberCell from "./MemberCell";
-import { client } from "@/libs/microcms";
+import { client } from "@/lib/microcms";
 import { MemberType } from "@/types/Member";
 
 async function getMembers(): Promise<MemberType[]> {

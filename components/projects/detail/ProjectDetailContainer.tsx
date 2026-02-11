@@ -11,10 +11,14 @@ interface ProjectDetailContainerProps {
 export default function ProjectDetailContainer({
   project,
 }: ProjectDetailContainerProps) {
+  const validImages = project.images.filter(
+    (img) => img.height !== undefined
+  );
+
   return (
     <div className="w-full max-w-7xl">
       {/* 画像 */}
-      <ImageCarousel images={project.images} />
+      <ImageCarousel images={validImages} />
       <div className="w-full max-w-7xl px-8">
         {/* 概要 */}
         <Overview project={project} />

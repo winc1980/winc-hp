@@ -1,7 +1,7 @@
 import PageHeader from "@/components/page-header";
 import PageSteper from "@/components/projects/detail/PageSteper";
 import ProjectDetailContainer from "@/components/projects/detail/ProjectDetailContainer";
-import { client } from "@/libs/microcms";
+import { client } from "@/lib/microcms";
 import { ProjectType } from "@/types/Project";
 
 async function getProject(id: string): Promise<ProjectType> {

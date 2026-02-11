@@ -2,7 +2,7 @@
 
 import { ProjectCard } from "./ProjectCard";
 import { ProjectType } from "@/types/Project";
-import { client } from "@/libs/microcms";
+import { client } from "@/lib/microcms";
 
 async function getProjects(): Promise<ProjectType[]> {
   const data = await client.get({

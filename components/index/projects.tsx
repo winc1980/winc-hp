@@ -2,7 +2,7 @@ import { Plus } from "lucide-react";
 import Link from "next/link";
 import { ProjectCard } from "../projects/ProjectCard";
 import { ProjectType } from "@/types/Project";
-import { client } from "@/libs/microcms";
+import { client } from "@/lib/microcms";;
 import SectionHeading from "./section-heading";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 

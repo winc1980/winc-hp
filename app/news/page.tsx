@@ -1,6 +1,6 @@
 import NewsArticle from "@/components/news-article";
 import PageHeader from "@/components/page-header";
-import { client } from "@/libs/microcms";
+import { client } from "@/lib/microcms";
 import { NewsType } from "@/types/News";
 
 async function getNews() {

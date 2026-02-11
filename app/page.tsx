@@ -4,7 +4,7 @@ import Join from "@/components/index/join";
 import Activities from "@/components/index/activities";
 import Hero from "@/components/index/hero";
 import LearnSection from "@/components/index/learn";
-import { client } from "@/libs/microcms";
+import { client } from "@/lib/microcms";
 import { BasicSettingsType } from "@/types/basics";
 export default async function Home() {
   const basicSettings = await client.getObject<BasicSettingsType>({

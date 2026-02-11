@@ -5,8 +5,9 @@ import { CmsImageType } from "@/types/CmsImage";
 import Image from "next/image";
 import { DotButton, useDotButton } from "./carouselDotButton";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { MicroCMSImage } from "microcms-js-sdk";
 
-export function ImageCarousel({ images: images }: { images: CmsImageType[] }) {
+export function ImageCarousel({ images: images }: { images: MicroCMSImage[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
@@ -25,7 +26,7 @@ export function ImageCarousel({ images: images }: { images: CmsImageType[] }) {
         <div className="absolute top-0 right-0 lg:w-[16%] h-[60vh] z-1 lg:bg-gradient-to-l from-background to-transparent"></div>
         <div className="embla bg-background" ref={emblaRef}>
           <div className="embla__container">
-            {images.map((image: CmsImageType, index) => (
+            {images.map((image: MicroCMSImage, index) => (
               <div
                 className={`embla__slide flex basis-[90%] ${
                   images.length > 3 ? "lg:basis-1/2" : ""
