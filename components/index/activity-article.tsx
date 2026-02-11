@@ -1,5 +1,5 @@
 "use client";
-import { JSX, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import TextPlugin from "gsap/TextPlugin";
 import { useGSAP } from "@gsap/react";

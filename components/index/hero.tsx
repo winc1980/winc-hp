@@ -5,10 +5,9 @@ import TextPlugin from "gsap/TextPlugin";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/all";
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "../ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import { MicroCMSImage } from "microcms-js-sdk";
 import Image from "next/image";
-import AutoScroll from "embla-carousel-auto-scroll";
 import Autoplay from "embla-carousel-autoplay";
 
 export default function Hero({images}:{images: MicroCMSImage[]}) {
