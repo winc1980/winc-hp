@@ -1,6 +1,7 @@
 import News from "@/components/index/news";
 import Blog from "@/components/index/blog";
 import Projects from "@/components/index/projects";
+import Instagram from "@/components/index/instagram";
 import Join from "@/components/index/join";
 import Activities from "@/components/index/activities";
 import Hero from "@/components/index/hero";
@@ -22,6 +23,7 @@ export default async function Home() {
               <LearnSection description={basicSettings['about_description']} image={basicSettings['about_image']} />
               <Activities basicSettings={basicSettings} />
               <Projects />
+              <Instagram />
               <Join heading={basicSettings['join_heading']} body={basicSettings['join_body']} />
               <News />
               <Blog />

@@ -1,0 +1,10 @@
+name = "instagram-sync"
+main = "src/index.ts"
+compatibility_date = "2025-02-10"
+
+[triggers]
+crons = ["0 */12 * * *"]
+
+[[kv_namespaces]]
+binding = "TOKEN_STORE"
+id = "YOUR_KV_NAMESPACE_ID"

@@ -155,7 +155,7 @@ export default function Header() {
               <div className="min-w-[166px]">
                 <Link href="https://secure.register.winc.ne.jp/">
                   <PrimaryButton>
-                    秋入会受付中
+                    入会はこちら
                     <ArrowRight />
                   </PrimaryButton>
                 </Link>
