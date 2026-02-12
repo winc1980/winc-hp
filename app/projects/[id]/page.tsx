@@ -12,6 +12,16 @@ async function getProject(id: string): Promise<ProjectType> {
   return data;
 }
 
+export async function generateStaticParams() {
+  const data = await client.getList<ProjectType>({
+    endpoint: "projects",
+    queries: { limit: 100, fields: "id" },
+  });
+  return data.contents.map((project) => ({
+    id: project.id,
+  }));
+}
+
 export default async function ProjectDetail({
   params,
 }: {
@@ -27,7 +37,7 @@ export default async function ProjectDetail({
           titleJa={project.title}
           titleEn={
             (project.completeDate != null ? "Released" : "In development") +
-            (project.technologies[0] ? ` / ${project.technologies[0]}` : '')
+            (project.technologies?.[0] ? ` / ${project.technologies[0]}` : '')
           }
           desc={<PageSteper pageTitle={project.title} className="my-4" />}
         />
