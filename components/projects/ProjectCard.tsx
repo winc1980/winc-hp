@@ -68,7 +68,7 @@ export const ProjectCard = ({ project, className }: { project: ProjectType, clas
             <h3 className="text-3xl font-light gsap-lines">
               <p className="font-mono text-sm opacity-60">
                 {project.completeDate != null ? "Released" : "In development"}
-                {project.technologies[0]?` / ${project.technologies[0].name}`:''}
+                {project.technologies[0]?` / ${typeof project.technologies[0] === "string" ? project.technologies[0] : (project.technologies[0] as { name: string }).name}`:''}
               </p>
               <span className="gsap-lines">{project.title}</span>
             </h3>
