@@ -1,8 +1,20 @@
 import PageHeader from "@/components/page-header";
 import ProjectSection from "@/components/projects/ProjectSection";
+import GenreTabs from "@/components/projects/GenreTabs";
 import Script from "next/script";
+import { ProjectGenre } from "@/types/Project";
 
-export default function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ genre?: string }>;
+}) {
+  const { genre } = await searchParams;
+  const validGenres: ProjectGenre[] = ["web", "app", "other"];
+  const currentGenre = validGenres.includes(genre as ProjectGenre)
+    ? (genre as ProjectGenre)
+    : undefined;
+
   return (
     <>
       <div>
@@ -37,25 +49,13 @@ export default function Home() {
             <div className="grow-[1] border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed max-lg:hidden [--pattern-fg:var(--foreground)]/10"></div>
             <div className="w-full max-w-7xl">
               <div className="min-h-[80vh] divide-effect flex flex-col justify-start">
-                <ProjectSection />
+                <GenreTabs current={currentGenre} />
+                <ProjectSection genre={currentGenre} />
               </div>
             </div>
             <div className="grow-[1] border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed max-lg:hidden [--pattern-fg:var(--foreground)]/10"></div>
           </div>
         </section>
-
-        {/* <section className="w-full flex flex-col items-center divide-effect">
-          <div className="w-full max-w-[1440px] flex flex-row items-stretch relative">
-            <div className="grow-[1] border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed max-lg:hidden [--pattern-fg:var(--foreground)]/10">
-              <div className="mt-24 lg:mt-8 mx-2 px-2">
-                <div className="flex flex-col gap-6 text-center lg:text-start">
-                  <ProjectSection sectionName="進行中のプロジェクト" />
-                  <ProjectSection sectionName="過去のプロジェクト" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
       </main>
 
     </>
