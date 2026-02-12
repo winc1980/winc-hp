@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import TextPlugin from "gsap/TextPlugin";
 import { useGSAP } from "@gsap/react";
@@ -13,7 +13,6 @@ export default function LearnSection({description,image}: {description:string,im
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(SplitText);
   const scope = useRef(null);
-  const [tabIndex, setTabIndex] = useState(0);
 
   useGSAP(
     () => {

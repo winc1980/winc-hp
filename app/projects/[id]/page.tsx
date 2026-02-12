@@ -27,7 +27,7 @@ export default async function ProjectDetail({
           titleJa={project.title}
           titleEn={
             (project.completeDate != null ? "Released" : "In development") +
-            (project.technologies[0] ? ` / ${project.technologies[0].name}` : '')
+            (project.technologies[0] ? ` / ${project.technologies[0]}` : '')
           }
           desc={<PageSteper pageTitle={project.title} className="my-4" />}
         />

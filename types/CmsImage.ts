@@ -1,5 +1,5 @@
 export interface CmsImageType {
     url: string;
-    height: number;
-    width: number;
+    height?: number;
+    width?: number;
 }

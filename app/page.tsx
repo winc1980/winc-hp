@@ -1,5 +1,7 @@
 import News from "@/components/index/news";
+import Blog from "@/components/index/blog";
 import Projects from "@/components/index/projects";
+import Instagram from "@/components/index/instagram";
 import Join from "@/components/index/join";
 import Activities from "@/components/index/activities";
 import Hero from "@/components/index/hero";
@@ -21,8 +23,10 @@ export default async function Home() {
               <LearnSection description={basicSettings['about_description']} image={basicSettings['about_image']} />
               <Activities basicSettings={basicSettings} />
               <Projects />
+              <Instagram />
               <Join heading={basicSettings['join_heading']} body={basicSettings['join_body']} />
               <News />
+              <Blog />
             </div>
             <div className="grow-[1] border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed max-lg:hidden [--pattern-fg:var(--foreground)]/10"></div>
           </div>

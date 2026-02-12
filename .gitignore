@@ -32,10 +32,19 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.env
+
+# blog images (downloaded at build time)
+/public/blog-images
 
 # vercel
 .vercel
 
+# cloudflare workers
+workers/*/node_modules/
+workers/*/.dev.vars
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+nul
