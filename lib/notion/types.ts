@@ -4,12 +4,12 @@ import type {
   RichTextItemResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
-// Re-export useful Notion SDK types
+// 
 export type { RichTextItemResponse, BlockObjectResponse };
 
 export type NotionPage = PageObjectResponse;
 
-// Blog post type extracted from Notion page properties
+// ブログ型
 export interface BlogPost {
   id: string;
   title: string;
@@ -27,13 +27,11 @@ export interface Tag {
   color: string;
 }
 
-// Block with children for nested blocks (toggle, lists, etc.)
-// BlockObjectResponse is a discriminated union, so we use intersection type
 export type BlockWithChildren = BlockObjectResponse & {
   children?: BlockWithChildren[];
 };
 
-// Notion color type
+// Notionの色
 export type NotionColor =
   | "default"
   | "gray"

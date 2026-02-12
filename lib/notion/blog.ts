@@ -5,7 +5,7 @@ import type {
   BlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 
-// Fetch all published blog posts
+// ブログすべてをfetch
 export async function getAllPosts(): Promise<BlogPost[]> {
   const response = await notion.dataSources.query({
     data_source_id: DATABASE_ID,
@@ -21,7 +21,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     .map(extractPost);
 }
 
-// Fetch a single post by slug
+// 単一ポストをslugによりfetch
 export async function getPostBySlug(
   slug: string
 ): Promise<BlogPost | undefined> {

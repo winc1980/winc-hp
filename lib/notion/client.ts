@@ -1,5 +1,7 @@
 import { Client } from "@notionhq/client";
 
+// NotionAPIClientの初期化
+
 if (!process.env.NOTION_API_SECRET) {
   throw new Error("NOTION_API_SECRET is not defined");
 }
