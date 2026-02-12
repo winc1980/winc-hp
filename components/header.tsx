@@ -32,6 +32,11 @@ export default function Header() {
         >
           <div className="flex flex-col h-full justify-between pt-48 pb-24">
             <ul className="flex flex-col gap-4 text-sm font-medium px-8">
+              <li>
+                <Link onNavigate={onNavigate} href="/blog">
+                  ブログ
+                </Link>
+              </li>
               <li className="font-bold text-muted-foreground mt-4">プロジェクト</li>
               <ul className="pl-4 space-y-2">
                 <li>
@@ -107,6 +112,11 @@ export default function Header() {
           )}
           <div className="hidden lg:block">
             <div className="flex gap-6 items-center uppercase font-bold">
+              <div className="hover:border-b-2 border-foreground transition-all" onMouseEnter={() => setExpanded(false)}>
+                <Link href="/blog">
+                  <div>ブログ</div>
+                </Link>
+              </div>
               <div className="hover:border-b-2 border-foreground transition-all" onMouseEnter={() => setExpanded(true)}>
                 <Link href="/projects">
                   <div>プロジェクト・制作実績</div>
