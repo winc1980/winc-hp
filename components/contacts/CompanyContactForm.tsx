@@ -7,12 +7,14 @@ import { useForm, Resolver } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState, useTransition } from "react";
 import { companyFormSchema, CompanyFormData } from "@/lib/schemas/contact";
-import { ContactFormState, submitCompanyContact } from "@/actions/contact";
+import { ContactFormState, submitContact } from "@/actions/contact";
 import { LoaderIcon } from "lucide-react";
+import { Turnstile } from "react-turnstile";
 
 function CompanyContactForm({ className }: { className?: string }) {
   const [isPending, startTransition] = useTransition();
   const [serverState, setServerState] = useState<ContactFormState>(null);
+  const [token, setToken] = useState<string | null>(null);
 
   const {
     register,
@@ -32,7 +34,7 @@ function CompanyContactForm({ className }: { className?: string }) {
   const onSubmit = (data: CompanyFormData) => {
     if (data) {
       startTransition(() => {
-        submitCompanyContact(data).then((result) => {
+        submitContact(data, token).then((result) => {
           setServerState(result);
         });
       });
@@ -97,7 +99,12 @@ function CompanyContactForm({ className }: { className?: string }) {
           {...register("message")}
         />
       </div>
-      <PrimaryButton type="submit" disabled={isPending}>
+      <Turnstile
+        sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
+        onVerify={(token) => setToken(token)}
+        onExpire={() => setToken(null)}
+      />
+      <PrimaryButton type="submit" disabled={isPending || !token}>
         {isPending ? (
           <div className="flex items-center">
             <LoaderIcon className="animate-spin mr-2" size={16} />

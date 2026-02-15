@@ -11,17 +11,19 @@ import {
   useTransition,
   useState,
 } from "react";
-import { submitStudentContact, ContactFormState } from "@/actions/contact";
+import { submitContact, ContactFormState } from "@/actions/contact";
 import {
   studentFormSchema,
   StudentFormData,
   ContactCategory,
 } from "@/lib/schemas/contact";
 import { LoaderIcon } from "lucide-react";
+import { Turnstile } from "react-turnstile";
 
 function StudentContactForm({ className }: { className?: string }) {
   const [isPending, startTransition] = useTransition();
   const [serverState, setServerState] = useState<ContactFormState>(null);
+  const [token, setToken] = useState<string | null>(null);
 
   const {
     register,
@@ -41,7 +43,7 @@ function StudentContactForm({ className }: { className?: string }) {
   const onSubmit = (data: StudentFormData) => {
     if (data) {
       startTransition(() => {
-        submitStudentContact(data).then((result) => {
+        submitContact(data, token).then((result) => {
           setServerState(result);
         });
       });
@@ -109,7 +111,12 @@ function StudentContactForm({ className }: { className?: string }) {
           errorMessage={errors.message?.message}
         />
       </div>
-      <PrimaryButton type="submit" disabled={isPending}>
+      <Turnstile
+        sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
+        onVerify={(token) => setToken(token)}
+        onExpire={() => setToken(null)}
+      />
+      <PrimaryButton type="submit" disabled={isPending || !token}>
         {isPending ? (
           <div className="flex items-center">
             <LoaderIcon className="animate-spin mr-2" size={16} />

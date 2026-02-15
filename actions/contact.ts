@@ -1,5 +1,9 @@
 "use server";
 
+import { EmailTemplate } from "@/components/contacts/EmailTemplate";
+import { discord } from "@/lib/discord";
+import { contactSpreadsheet } from "@/lib/google-apps-script";
+import { resend } from "@/lib/resend";
 import {
   companyFormSchema,
   studentFormSchema,
@@ -18,35 +22,63 @@ export type ContactFormState =
     }
   | null;
 
+const EMAIL_FROM = process.env.RESEND_EMAIL_FROM;
 
-export async function submitCompanyContact(
-  data: CompanyFormData,
+
+export async function submitContact(
+  data: StudentFormData | CompanyFormData,
+  token: string | null,
 ): Promise<ContactFormState> {
-  try {
-    await companyFormSchema.validate(data);
-  } catch (error) {
-    return { success: false, error: "入力内容に不備があります。" };
+  if (!token) {
+    return { success: false, error: "トークンが無効です。" };
   }
-  
-  // todo: send email & save to DB
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  const verifyRes = await fetch(
+    "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        secret: process.env.TURNSTILE_SECRET_KEY,
+        response: token,
+      }),
+      headers: { "Content-Type": "application/json" },
+    },
+  );
+  const verifyData = await verifyRes.json();
 
-  return { success: true, message: "お問い合わせを受け付けました。" };
-}
+  if (!verifyData.success) {
+    return { success: false, error: "トークンの検証に失敗しました。" };
+  }
 
-export async function submitStudentContact(
-  data: StudentFormData,
-): Promise<ContactFormState> {
   try {
     await studentFormSchema.validate(data);
   } catch (error) {
     return { success: false, error: "入力内容に不備があります。" };
   }
 
-  // todo: send email & save to DB
-  
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  try {
+    await contactSpreadsheet.create(data);
+  } catch (error) {
+    console.error("Error saving to spreadsheet:", error);
+    return { success: false, error: "お問い合わせの保存に失敗しました。" };
+  }
+
+  try {
+    await resend.emails.send({
+      from: `WINC <${EMAIL_FROM}>`,
+      to: data.email,
+      subject: "お問い合わせを受け付けました",
+      react: EmailTemplate({
+        name: data.name,
+        email: data.email,
+        body: data.message,
+      }),
+    });
+
+    await discord.notifyContactSubmission(data);
+  } catch (error) {
+    console.error("Failed post saving actions in contact submission:", error);
+  }
 
   return { success: true, message: "お問い合わせを受け付けました。" };
 }
