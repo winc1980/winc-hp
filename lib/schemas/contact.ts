@@ -35,3 +35,9 @@ export const studentFormSchema = yup
   })
   .required();
 export type StudentFormData = yup.InferType<typeof studentFormSchema>;
+
+
+
+export const isCompanyContact = (
+  data: CompanyFormData | StudentFormData,
+): data is CompanyFormData => "company" in data;

@@ -1,14 +1,10 @@
-import { CompanyFormData, StudentFormData } from "./schemas/contact";
+import { CompanyFormData, isCompanyContact, StudentFormData } from "./schemas/contact";
 
 const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
 
 if (!DISCORD_WEBHOOK_URL) {
   throw new Error("DISCORD_WEBHOOK_URL is not defined");
 }
-
-const isCompanyContact = (
-  data: CompanyFormData | StudentFormData,
-): data is CompanyFormData => "company" in data;
 
 const notifyContactSubmission = async (
   data: CompanyFormData | StudentFormData,

@@ -9,6 +9,7 @@ import {
   studentFormSchema,
   CompanyFormData,
   StudentFormData,
+  isCompanyContact,
 } from "@/lib/schemas/contact";
 
 export type ContactFormState =
@@ -23,7 +24,6 @@ export type ContactFormState =
   | null;
 
 const EMAIL_FROM = process.env.RESEND_EMAIL_FROM;
-
 
 export async function submitContact(
   data: StudentFormData | CompanyFormData,
@@ -51,7 +51,11 @@ export async function submitContact(
   }
 
   try {
-    await studentFormSchema.validate(data);
+    if (isCompanyContact(data)) {
+      await companyFormSchema.validate(data);
+    } else {
+      await studentFormSchema.validate(data);
+    }
   } catch (error) {
     return { success: false, error: "入力内容に不備があります。" };
   }
@@ -65,7 +69,7 @@ export async function submitContact(
 
   try {
     await resend.emails.send({
-      from: `WINC <${EMAIL_FROM}>`,
+      from: `早稲田コンピューター研究会 WINC <${EMAIL_FROM}>`,
       to: data.email,
       subject: "お問い合わせを受け付けました",
       react: EmailTemplate({
