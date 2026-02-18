@@ -10,6 +10,7 @@ function ContactForm() {
     <div>
       <div className="flex justify-stretch w-full">
         <button
+          type="button"
           className={`grow flex border-b-4 ${userType === "student" ? "" : "border-muted-foreground/50 text-muted-foreground/50"}`}
           onClick={() => setUserType("student")}
         >
@@ -18,6 +19,7 @@ function ContactForm() {
           </p>
         </button>
         <button
+          type="button"
           className={`grow flex border-b-4 ${userType === "company" ? "" : "border-muted-foreground/50 text-muted-foreground/50"}`}
           onClick={() => setUserType("company")}
         >

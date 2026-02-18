@@ -24,6 +24,15 @@ export type ContactFormState =
   | null;
 
 const EMAIL_FROM = process.env.RESEND_EMAIL_FROM;
+const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
+
+if (!TURNSTILE_SECRET_KEY) {
+  throw new Error("TURNSTILE_SECRET_KEY is not defined");
+}
+
+if (!EMAIL_FROM) {
+  throw new Error("RESEND_EMAIL_FROM is not defined");
+}
 
 export async function submitContact(
   data: StudentFormData | CompanyFormData,
@@ -38,7 +47,7 @@ export async function submitContact(
     {
       method: "POST",
       body: JSON.stringify({
-        secret: process.env.TURNSTILE_SECRET_KEY,
+        secret: TURNSTILE_SECRET_KEY,
         response: token,
       }),
       headers: { "Content-Type": "application/json" },

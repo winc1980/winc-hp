@@ -22,7 +22,6 @@ const create = async (data: CompanyFormData | StudentFormData) => {
     body: JSON.stringify({token: GAS_SECRET_TOKEN, ...data}),
   });
 
-  console.log(res);
   if (!res.ok) {
     throw new Error("Failed to submit contact form");
   }

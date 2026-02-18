@@ -1,4 +1,8 @@
-import { CompanyFormData, isCompanyContact, StudentFormData } from "./schemas/contact";
+import {
+  CompanyFormData,
+  isCompanyContact,
+  StudentFormData,
+} from "./schemas/contact";
 
 const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
 
@@ -25,6 +29,9 @@ const notifyContactSubmission = async (
 -----------------------------------
 ${content}
 -----------------------------------`,
+    allowed_mentions: {
+      parse: [],
+    },
   };
 
   const response = await fetch(process.env.DISCORD_WEBHOOK_URL!, {
