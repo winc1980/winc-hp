@@ -4,7 +4,9 @@ const nextConfig: NextConfig = {
   /* config options here */
   images: {
     domains: ["images.microcms-assets.io"],
+    unoptimized: true,
   },
+  output: "export",
 };
 
 export default nextConfig;

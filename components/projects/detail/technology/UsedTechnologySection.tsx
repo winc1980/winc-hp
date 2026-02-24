@@ -14,7 +14,7 @@ export default function UsedTechnologySection({ project }: UsedTechnologySection
           使用技術
         </h2>
         <div className="flex gap-4 items-center py-4">
-          {project.technologies.map((tech, index) => {
+          {(project.technologies ?? []).map((tech, index) => {
             // CMS のリピーターフィールドからオブジェクトが来る場合に対応
             const name = typeof tech === "string" ? tech : (tech as { name: string }).name;
             const iconPath = getTechnologyIcon(name);

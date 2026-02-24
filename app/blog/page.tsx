@@ -8,8 +8,6 @@ export const metadata: Metadata = {
   description: "早稲田コンピューター研究会（WINC）のブログ記事一覧",
 };
 
-export const revalidate = 60;
-
 export default async function BlogPage() {
   const posts = await getAllPosts();
 

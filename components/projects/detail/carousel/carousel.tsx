@@ -6,7 +6,7 @@ import Image from "next/image";
 import { DotButton, useDotButton } from "./carouselDotButton";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export function ImageCarousel({ images: images }: { images: CmsImageType[] }) {
+export function ImageCarousel({ images }: { images?: CmsImageType[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
@@ -17,6 +17,8 @@ export function ImageCarousel({ images: images }: { images: CmsImageType[] }) {
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
+
+  if (!images || images.length === 0) return null;
 
   return (
     <>
