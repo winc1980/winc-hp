@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
     domains: ["images.microcms-assets.io"],
     unoptimized: true,
   },
-  target: 'serverless', // 追記
 };
 
 export default nextConfig;
