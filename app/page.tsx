@@ -23,7 +23,8 @@ export default async function Home() {
               <LearnSection description={basicSettings['about_description']} image={basicSettings['about_image']} />
               <Activities basicSettings={basicSettings} />
               <Projects />
-              <Instagram />
+              {/* 【TODO】Instagramのアカウント設定 */}
+              {/* <Instagram /> */}
               <Join heading={basicSettings['join_heading']} body={basicSettings['join_body']} />
               <News />
               <Blog />
