@@ -1,4 +1,4 @@
-import { notion, DATABASE_ID } from "./client";
+import { notion, DATABASE_ID, withNotionRetry } from "./client";
 import type { BlogPost, BlockWithChildren, Tag } from "./types";
 import type {
   PageObjectResponse,
@@ -7,14 +7,16 @@ import type {
 
 // ブログすべてをfetch
 export async function getAllPosts(): Promise<BlogPost[]> {
-  const response = await notion.dataSources.query({
-    data_source_id: DATABASE_ID,
-    filter: {
-      property: "Published",
-      checkbox: { equals: true },
-    },
-    sorts: [{ property: "Date", direction: "descending" }],
-  });
+  const response = await withNotionRetry(() =>
+    notion.dataSources.query({
+      data_source_id: DATABASE_ID,
+      filter: {
+        property: "Published",
+        checkbox: { equals: true },
+      },
+      sorts: [{ property: "Date", direction: "descending" }],
+    })
+  );
 
   return response.results
     .filter((page): page is PageObjectResponse => "properties" in page)
@@ -25,15 +27,17 @@ export async function getAllPosts(): Promise<BlogPost[]> {
 export async function getPostBySlug(
   slug: string
 ): Promise<BlogPost | undefined> {
-  const response = await notion.dataSources.query({
-    data_source_id: DATABASE_ID,
-    filter: {
-      and: [
-        { property: "Slug", rich_text: { equals: slug } },
-        { property: "Published", checkbox: { equals: true } },
-      ],
-    },
-  });
+  const response = await withNotionRetry(() =>
+    notion.dataSources.query({
+      data_source_id: DATABASE_ID,
+      filter: {
+        and: [
+          { property: "Slug", rich_text: { equals: slug } },
+          { property: "Published", checkbox: { equals: true } },
+        ],
+      },
+    })
+  );
 
   const page = response.results[0];
   if (!page || !("properties" in page)) return undefined;
@@ -48,11 +52,13 @@ export async function getPostBlocks(
   let cursor: string | undefined;
 
   do {
-    const response = await notion.blocks.children.list({
-      block_id: pageId,
-      start_cursor: cursor,
-      page_size: 100,
-    });
+    const response = await withNotionRetry(() =>
+      notion.blocks.children.list({
+        block_id: pageId,
+        start_cursor: cursor,
+        page_size: 100,
+      })
+    );
     blocks.push(
       ...response.results.filter(
         (b): b is BlockObjectResponse => "type" in b
