@@ -165,7 +165,7 @@ pnpm lint
 
 ### ビルドエラー「Server Actions are not supported with static export」
 
-`next.config.ts` から `output: "export"` を削除してください。このプロジェクトはサーバーレンダリング（SSR）で動作します。
+このプロジェクトはサーバーレンダリング（SSR）で動作します。
 
 ### 環境変数が読み込まれない
 
