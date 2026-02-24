@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { ProjectGenre } from "@/types/Project";
 
 const GENRE_LABELS: Record<string, string> = {
@@ -12,15 +11,21 @@ const GENRE_LABELS: Record<string, string> = {
 
 const GENRES = ["all", "web", "app", "other"] as const;
 
-export default function GenreTabs({ current }: { current?: ProjectGenre }) {
+export default function GenreTabs({
+  current,
+  onChange,
+}: {
+  current?: ProjectGenre;
+  onChange: (genre: ProjectGenre | undefined) => void;
+}) {
   return (
     <div className="flex gap-2 px-2 md:px-16 pt-8">
       {GENRES.map((genre) => {
         const isActive = genre === "all" ? !current : current === genre;
         return (
-          <Link
+          <button
             key={genre}
-            href={genre === "all" ? "/projects" : `/projects?genre=${genre}`}
+            onClick={() => onChange(genre === "all" ? undefined : (genre as ProjectGenre))}
             className={`px-4 py-2 text-sm font-mono border transition-all duration-200 ${
               isActive
                 ? "bg-foreground text-background border-foreground"
@@ -28,7 +33,7 @@ export default function GenreTabs({ current }: { current?: ProjectGenre }) {
             }`}
           >
             {GENRE_LABELS[genre]}
-          </Link>
+          </button>
         );
       })}
     </div>

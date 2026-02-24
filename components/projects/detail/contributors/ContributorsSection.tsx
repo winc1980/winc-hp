@@ -15,7 +15,7 @@ export default function ContributorsSection({
         貢献者
       </h2>
       <div className="w-full gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 py-4">
-        {project.members.map((member) => (
+        {(project.members ?? []).map((member) => (
           <ContributorCell key={member.id} member={member} />
         ))}
       </div>

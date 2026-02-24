@@ -80,7 +80,7 @@ export default function Header() {
                 </Link>
               </section>
               <section className="w-full max-w-7xl text-end">
-                <p>© 2025 WINC</p>
+                <p>© 2026 WINC</p>
               </section>
             </footer>
           </div>

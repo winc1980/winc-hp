@@ -56,15 +56,15 @@ export const ProjectCard = ({ project, className }: { project: ProjectType, clas
   return (
     <Link href={`/projects/${project.id}`} className={className} ref={scope}>
       <article className="bg-foreground/10 border border-foreground/10 w-full @container p-2 h-full transition-all duration-300">
-        <div className="flex flex-col @xl:flex-row items-center bg-background hover:bg-foreground/80 hover:backdrop-blur hover:text-background @xl:hover:[&>img]:aspect-[calc(sqrt(2)/1)] transition-all duration-300 rounded-2xl gap-4 @xl:gap-8 p-4 @xl:p-8 h-full">
+        <div className="flex flex-col items-start bg-background hover:bg-foreground/80 hover:backdrop-blur hover:text-background transition-all duration-300 rounded-2xl gap-4 p-4 h-full">
           <Image
             src={project.images[0].url ?? ""}
             alt={project.title}
-            className="h-auto w-full aspect-[16/9] @xl:max-w-[max(40%,20vw)] max-w-lg object-cover transition-all duration-300 rounded-xl"
-            width={320 * Math.sqrt(2)}
-            height={320}
+            className="h-auto w-full aspect-video object-cover transition-all duration-300 rounded-xl"
+            width={800}
+            height={450}
           />
-          <div className="@xl:w-1/2">
+          <div className="w-full">
             <h3 className="text-3xl font-light gsap-lines">
               <p className="font-mono text-sm opacity-60">
                 {project.completeDate != null ? "Released" : "In development"}
@@ -74,7 +74,7 @@ export const ProjectCard = ({ project, className }: { project: ProjectType, clas
             </h3>
             <div
               dangerouslySetInnerHTML={{ __html: project.description }}
-              className="text-md py-4 reveal-on-scroll max-h-40 truncate" />
+              className="text-md py-4 reveal-on-scroll line-clamp-3" />
           </div>
         </div>
       </article>
