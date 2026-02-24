@@ -10,8 +10,15 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
-  return posts.map((post) => ({ slug: post.slug }));
+  try {
+    const posts = await getAllPosts();
+    return posts.map((post) => ({ slug: post.slug }));
+  } catch (err) {
+    // If Notion fetch fails during build (e.g., rate limit), log and return empty
+    // This prevents build failure; pages will be generated on-demand or in next deploy
+    console.error('Failed to fetch posts for generateStaticParams:', err);
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

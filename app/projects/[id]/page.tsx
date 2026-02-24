@@ -13,13 +13,20 @@ async function getProject(id: string): Promise<ProjectType> {
 }
 
 export async function generateStaticParams() {
-  const data = await client.getList<ProjectType>({
-    endpoint: "projects",
-    queries: { limit: 100, fields: "id" },
-  });
-  return data.contents.map((project) => ({
-    id: project.id,
-  }));
+  try {
+    const data = await client.getList<ProjectType>({
+      endpoint: "projects",
+      queries: { limit: 100, fields: "id" },
+    });
+    return data.contents.map((project) => ({
+      id: project.id,
+    }));
+  } catch (err) {
+    // If API fetch fails during build, log and return empty
+    // This prevents build failure; pages will be generated on-demand or in next deploy
+    console.error('Failed to fetch projects for generateStaticParams:', err);
+    return [];
+  }
 }
 
 export default async function ProjectDetail({
