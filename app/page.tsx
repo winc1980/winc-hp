@@ -1,7 +1,7 @@
 import News from "@/components/index/news";
 import Blog from "@/components/index/blog";
 import Projects from "@/components/index/projects";
-import Instagram from "@/components/index/instagram";
+// import Instagram from "@/components/index/instagram";
 import Join from "@/components/index/join";
 import Activities from "@/components/index/activities";
 import Hero from "@/components/index/hero";

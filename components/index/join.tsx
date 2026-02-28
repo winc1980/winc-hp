@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/all";
 import SectionHeading from "./section-heading";
 import { PrimaryButton } from "../buttons/PrimaryButton";
+import SinkanCalendar from "../SinkanCalendar";
 
 export default function Join({heading,body}: { heading: string; body: string }) {
   gsap.registerPlugin(TextPlugin);
@@ -92,6 +93,11 @@ export default function Join({heading,body}: { heading: string; body: string }) 
             <ArrowRight />
           </PrimaryButton>
         </Link>
+
+        {/* 新歓カレンダーを埋め込み */}
+        <div className="mt-16 flex justify-center">
+          <SinkanCalendar noWrapper className="w-full max-w-md" />
+        </div>
       </section>
     </div>
   );
