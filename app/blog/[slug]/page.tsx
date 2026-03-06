@@ -26,9 +26,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPostBySlug(slug);
   if (!post) return { title: "Not Found - WINC" };
 
+  const description = post.excerpt
+    ? post.excerpt.length > 120
+      ? post.excerpt.slice(0, 120) + "…"
+      : post.excerpt
+    : `WINCブログ: ${post.title} — 早稲田大学ITサークルWINCのメンバーによる技術記事です。`;
+
   return {
-    title: `${post.title} - WINC Blog`,
-    description: post.excerpt || `${post.title} - WINCブログ`,
+    title: post.title,
+    description,
+    openGraph: {
+      title: `${post.title} | WINC Blog`,
+      description,
+      type: "article",
+      publishedTime: post.date,
+      tags: post.tags.map((t) => t.name),
+      ...(post.coverImage && { images: [{ url: post.coverImage, alt: post.title }] }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | WINC Blog`,
+      description,
+      ...(post.coverImage && { images: [post.coverImage] }),
+    },
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
   };
 }
 

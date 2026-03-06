@@ -3,6 +3,7 @@ import PageSteper from "@/components/projects/detail/PageSteper";
 import ProjectDetailContainer from "@/components/projects/detail/ProjectDetailContainer";
 import { client } from "@/libs/microcms";
 import { ProjectType } from "@/types/Project";
+import type { Metadata } from "next";
 
 async function getProject(id: string): Promise<ProjectType> {
   const data = await client.get({
@@ -10,6 +11,42 @@ async function getProject(id: string): Promise<ProjectType> {
     contentId: id,
   });
   return data;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  try {
+    const id = (await params).id;
+    const project = await getProject(id);
+    const plainDescription = project.description.replace(/<[^>]*>/g, "").slice(0, 120);
+    const description = plainDescription
+      ? plainDescription + "…"
+      : `${project.title} — WINCが開発した${project.genre?.includes("web") ? "Webサービス" : "アプリ"}です。早稲田大学ITサークルWINCのプロジェクト。`;
+
+    return {
+      title: project.title,
+      description,
+      openGraph: {
+        title: `${project.title} | WINC Projects`,
+        description,
+        ...(project.images[0] && {
+          images: [{ url: project.images[0].url, alt: project.title }],
+        }),
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${project.title} | WINC Projects`,
+        description,
+        ...(project.images[0] && { images: [project.images[0].url] }),
+      },
+      alternates: { canonical: `/projects/${id}` },
+    };
+  } catch {
+    return { title: "Project | WINC" };
+  }
 }
 
 export async function generateStaticParams() {

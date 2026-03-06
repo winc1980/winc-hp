@@ -1,7 +1,7 @@
 "use client";
 import { InstagramPostType } from "@/types/Instagram";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -30,11 +30,17 @@ export default function InstagramCard({ post }: { post: InstagramPostType }) {
     { scope: scope }
   );
 
-  const formattedDate = new Date(post.posted_at).toLocaleDateString("ja-JP", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const [formattedDate, setFormattedDate] = useState<string>("");
+
+  useEffect(() => {
+    setFormattedDate(
+      new Date(post.posted_at).toLocaleDateString("ja-JP", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    );
+  }, [post.posted_at]);
 
   return (
     <a

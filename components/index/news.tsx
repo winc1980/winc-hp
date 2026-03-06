@@ -19,7 +19,7 @@ export default async function News() {
   return (
     <>
       <div className="divide-effect flex flex-col justify-center">
-        <section className="border-t border-b border-foreground/10 w-full max-w-7xl  flex flex-col gap-20">
+        <section className="border-t border-b border-foreground/10 w-full max-w-7xl py-16 lg:py-32 flex flex-col gap-12 lg:gap-20">
           <SectionHeading titleEn="news" titleJa="新着情報" />
           <div className="divide-effect flex flex-col items-center">
             {news.map((newsContent: NewsType, i: number) => {

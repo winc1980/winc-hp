@@ -11,7 +11,7 @@ export default async function Blog() {
   return (
     <>
       <div className="divide-effect flex flex-col justify-center">
-        <section className="border-t border-b border-foreground/10 w-full max-w-7xl py-32 flex flex-col gap-20">
+        <section className="border-t border-b border-foreground/10 w-full max-w-7xl py-16 lg:py-32 flex flex-col gap-12 lg:gap-20">
           <SectionHeading titleEn="BLOG" titleJa="ブログ" />
           <div className="min-h-[80vh] divide-effect flex flex-col items-center">
             {posts.map((post, i) => {

@@ -70,7 +70,7 @@ export default function LearnSection({description,image}: {description:string,im
 
   return (
     <div className="divide-effect flex flex-col justify-center" ref={scope}>
-      <section className="gsap-trigger w-full max-w-7xl py-32 relative">
+      <section className="gsap-trigger w-full max-w-7xl py-16 lg:py-32 relative">
         <div className="divide-effect">
           <h2 className="overflow-hidden text-6xl lg:text-7xl font-light w-full">
             <div className="gsap gsap-chars uppercase font-bold palt">
@@ -85,7 +85,7 @@ export default function LearnSection({description,image}: {description:string,im
                 <span className="palt">「創る」を</span>
                 <span className="palt">楽しむ。</span>
               </p>
-              <div className="lg:hidden mask-[url(/masks/brushes/1.png)] mask-no-repeat mask-center mask-contain">
+              <div className="lg:hidden mask-[url(/masks/brushes/1.webp)] mask-no-repeat mask-center mask-contain">
                 <Image
                   src={image.url}
                   alt={image.alt || "活動イメージ画像"}
@@ -105,7 +105,7 @@ export default function LearnSection({description,image}: {description:string,im
                 </div>
               ))}
             </div>
-            <div className="hidden lg:block mask-[url(/masks/brushes/1.png)] mask-no-repeat mask-center mask-contain h-full absolute right-0 bottom-1/2 translate-y-1/2">
+            <div className="hidden lg:block mask-[url(/masks/brushes/1.webp)] mask-no-repeat mask-center mask-contain h-full absolute right-0 bottom-1/2 translate-y-1/2">
               <Image
                 src={image.url}
                 alt={image.alt || "活動イメージ画像"}
