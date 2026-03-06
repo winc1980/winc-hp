@@ -56,11 +56,11 @@ export default function Hero({images}:{images: MicroCMSImage[]}) {
       const cursorTL = gsap.timeline();
       cursorTL.fromTo(
         "#hero-main-typo-cursor",
-        1,
         {
           "border-right-color": "var(--foreground)",
         },
         {
+          duration: 1,
           "border-right-color": "rgba(0,0,0,0)",
           repeat: -1,
           ease: "steps(1)",
@@ -76,7 +76,7 @@ export default function Hero({images}:{images: MicroCMSImage[]}) {
       className="flex flex-col w-full max-w-7xl justify-stretch lg:justify-center items-center lg:items-start lg:gap-12 min-h-screen py-16 relative"
       ref={scope}
     >
-      <div className="relative z-10 mt-24 lg:mt-8 mx-2 px-2 flex flex-col grow lg:grow-0 w-full lg:w-auto">
+      <div className="relative z-10 mt-24 lg:mt-8 mx-4 px-4 flex flex-col grow lg:grow-0 w-full lg:w-auto">
         <div className="flex flex-col gap-3 lg:gap-6 text-start items-start justify-end grow">
           <span className="font-extrabold text-md">
             <p>早稲田大学コンピューター研究会</p>
@@ -122,21 +122,22 @@ export default function Hero({images}:{images: MicroCMSImage[]}) {
             const mask = (() => {
               switch (index % 3) {
                 case 0:
-                  return "aspect-square mask-[url(/masks/brushes/4.png)]";
+                  return "aspect-square mask-[url(/masks/brushes/4.webp)]";
                 case 1:
-                  return "aspect-square mask-[url(/masks/brushes/2.png)]";
+                  return "aspect-square mask-[url(/masks/brushes/2.webp)]";
                 case 2:
-                  return "aspect-video mask-[url(/masks/brushes/1.png)]";
+                  return "aspect-video mask-[url(/masks/brushes/1.webp)]";
               }
             })();
             return (
               <CarouselItem key={index} className={`p-0 basis-auto `}>
                 <Image
                   src={image.url}
-                  alt={image.alt ?? `Hero Image ${index + 1}`}
-                  layout="responsive"
+                  alt={image.alt ?? `WINCの活動 ${index + 1}`}
                   width={image.width}
                   height={image.height}
+                  sizes="40vw"
+                  priority={index === 0}
                   className={`object-cover ${mask} mask-no-repeat mask-center mask-contain`}
                 />
               </CarouselItem>
@@ -172,10 +173,11 @@ export default function Hero({images}:{images: MicroCMSImage[]}) {
               <CarouselItem key={index} className="p-0">
                 <Image
                   src={image.url}
-                  alt={image.alt ?? `Hero Image ${index + 1}`}
-                  layout="responsive"
+                  alt={image.alt ?? `WINCの活動 ${index + 1}`}
                   width={image.width}
                   height={image.height}
+                  sizes="100vw"
+                  priority={index === 0}
                   className={`object-cover ${mask} mask-no-repeat mask-center mask-contain`}
                 />
               </CarouselItem>

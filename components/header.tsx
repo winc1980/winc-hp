@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X, Instagram } from "lucide-react";
 import { useState } from "react";
 import { useScrollStatus } from "@/hooks/scroll-status";
 import { PrimaryButton } from "./buttons/PrimaryButton";
@@ -31,44 +31,67 @@ export default function Header() {
             } fixed h-screen w-screen z-20 bg-background`}
         >
           <div className="flex flex-col h-full justify-between pt-48 pb-24">
-            <ul className="flex flex-col gap-4 text-sm font-medium px-8">
+            <ul className="flex flex-col text-sm font-medium px-8">
               <li>
-                <Link onNavigate={onNavigate} href="/blog">
+                <Link
+                  onNavigate={onNavigate}
+                  href="/blog"
+                  className="flex items-center min-h-[44px] py-2"
+                >
                   ブログ
                 </Link>
               </li>
-              <li className="font-bold text-muted-foreground mt-4">プロジェクト</li>
-              <ul className="pl-4 space-y-2">
+              <li className="font-bold text-muted-foreground mt-4 mb-1">プロジェクト</li>
+              <ul className="pl-4">
                 <li>
-                  <Link onNavigate={onNavigate} href="/projects#apps">
+                  <Link
+                    onNavigate={onNavigate}
+                    href="/projects#apps"
+                    className="flex items-center min-h-[44px] py-2"
+                  >
                     アプリ開発
                   </Link>
                 </li>
                 <li>
-                  <Link onNavigate={onNavigate} href="/projects#web">
+                  <Link
+                    onNavigate={onNavigate}
+                    href="/projects#web"
+                    className="flex items-center min-h-[44px] py-2"
+                  >
                     ホームページ制作
                   </Link>
                 </li>
               </ul>
+              <li>
+                <Link
+                  onNavigate={onNavigate}
+                  href="/contacts"
+                  className="flex items-center min-h-[44px] py-2 mt-4"
+                >
+                  お問い合わせ
+                </Link>
+              </li>
             </ul>
             <footer className="flex flex-col text-zinc-500 text-xs px-8 my-8 gap-8">
-              <div className="flex justify-center flex-wrap max-w-7xl gap-8">
-                <Link href="https://x.com/WINC_waseda">
+              <div className="flex justify-center flex-wrap max-w-7xl gap-6">
+                <Link
+                  href="https://x.com/WINC_waseda"
+                  className="flex items-center justify-center min-w-[44px] min-h-[44px] p-2"
+                  aria-label="公式X - @WINC_waseda"
+                >
                   <Image
                     src="/external-assets/x-logo/logo-black.png"
-                    width={31}
-                    height={31}
-                    alt="公式X - @WINC_waseda"
-                    className="p-0.5"
+                    width={28}
+                    height={28}
+                    alt=""
                   />
                 </Link>
-                <Link href="https://www.instagram.com/waseda_winc/">
-                  <Image
-                    src="/external-assets/IG_brand_asset_pack_2023/01 Static Glyph/01 Gradient Glyph/Instagram_Glyph_Gradient.svg"
-                    width={33}
-                    height={33}
-                    alt="公式Instagram - waseda_winc"
-                  />
+                <Link
+                  href="https://www.instagram.com/waseda_winc/"
+                  className="flex items-center justify-center min-w-[44px] min-h-[44px] p-2"
+                  aria-label="公式Instagram - waseda_winc"
+                >
+                  <Instagram size={28} />
                 </Link>
               </div>
               <section className="flex flex-wrap gap-3">
@@ -103,12 +126,21 @@ export default function Header() {
             />
           </Link>
           {isOpen ? (
-            <X className="h-6 lg:hidden" onClick={() => setIsOpen(!isOpen)} />
-          ) : (
-            <Menu
-              className="h-6 lg:hidden"
+            <button
+              className="lg:hidden p-3 -mr-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
               onClick={() => setIsOpen(!isOpen)}
-            />
+              aria-label="メニューを閉じる"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          ) : (
+            <button
+              className="lg:hidden p-3 -mr-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="メニューを開く"
+            >
+              <Menu className="h-6 w-6" />
+            </button>
           )}
           <div className="hidden lg:block">
             <div className="flex gap-6 items-center uppercase font-bold">
@@ -143,12 +175,7 @@ export default function Header() {
               <div>
                 <Link href="https://www.instagram.com/waseda_winc/">
                   <div>
-                    <Image
-                      src="/external-assets/IG_brand_asset_pack_2023/01 Static Glyph/03 Black Glyph/Instagram_Glyph_Black.svg"
-                      width={24}
-                      height={24}
-                      alt="公式Instagram - waseda_winc"
-                    />
+                    <Instagram size={24} />
                   </div>
                 </Link>
               </div>

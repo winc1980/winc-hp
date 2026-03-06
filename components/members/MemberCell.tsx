@@ -1,6 +1,7 @@
 import { MemberType } from "@/types/Member";
 import Icon from "./Icon";
 import Image from "next/image";
+import { Instagram } from "lucide-react";
 
 type MemberCellProps = {
   member: MemberType;
@@ -39,7 +40,7 @@ export default function MemberCell({ member }: MemberCellProps) {
               <Image src="/external-assets/github-logo/github-mark-white.png" alt="githubのアイコン" width={32} height={32} />
             </a>
             <a href={member.instagramUrl} className="text-sm" target="_blank" rel="noopener noreferrer">
-              <Image src="/external-assets/IG_brand_asset_pack_2023/01 Static Glyph/02 White Glyph/Instagram_Glyph_White.png" alt="instagramのアイコン" width={30} height={30} />
+              <Instagram size={28} className="text-white" />
             </a>
           </div>
 

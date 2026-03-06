@@ -58,7 +58,7 @@ export default function Join({heading,body}: { heading: string; body: string }) 
 
   return (
     <div className="divide-effect flex flex-col" ref={scope}>
-      <section className="gsap-trigger border-t border-b border-foreground/10 w-full max-w-7xl py-32 relative">
+      <section className="gsap-trigger border-t border-b border-foreground/10 w-full max-w-7xl py-16 lg:py-32 relative">
         <SectionHeading titleEn="join us" titleJa="新歓情報" />
         <h2 className="overflow-hidden text-[42px] lg:text-7xl font-light w-full divide-effect">
           <div className="gsap gsap-chars ">

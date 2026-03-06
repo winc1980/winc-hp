@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -60,12 +61,7 @@ export default function Footer() {
             />
           </Link>
           <Link href="https://www.instagram.com/waseda_winc/">
-            <Image
-              src="/external-assets/IG_brand_asset_pack_2023/01 Static Glyph/01 Gradient Glyph/Instagram_Glyph_Gradient.svg"
-              width={33}
-              height={33}
-              alt="公式Instagram - waseda_winc"
-            />
+            <Instagram size={30} />
           </Link>
         </div>
       </section>
