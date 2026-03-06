@@ -84,7 +84,7 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className={`${notoSansJp.variable} ${geistMono.variable} ${sans.variable} antialiased min-h-screen bg-gradient-to-br from-blue-500 to-rose-500 z-0 relative`}
+        className={`${notoSansJp.variable} ${geistMono.variable} ${sans.variable} antialiased min-h-screen bg-gradient-orange-50 z-0 relative`}
       >
         <LoadingOrBg />
         <Header />

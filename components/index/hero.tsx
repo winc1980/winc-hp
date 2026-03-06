@@ -73,11 +73,11 @@ export default function Hero({images}:{images: MicroCMSImage[]}) {
 
   return (
     <section
-      className="flex flex-col w-full max-w-7xl justify-stretch lg:justify-center items-center lg:items-start lg:gap-12 min-h-screen py-16 relative"
+      className="flex flex-col w-full max-w-7xl justify-center items-center lg:items-start lg:gap-12 lg:min-h-screen py-16 relative"
       ref={scope}
     >
-      <div className="relative z-10 mt-24 lg:mt-8 mx-4 px-4 flex flex-col grow lg:grow-0 w-full lg:w-auto">
-        <div className="flex flex-col gap-3 lg:gap-6 text-start items-start justify-end grow">
+      <div className="relative z-10 mt-[50vh] lg:mt-8 mx-4 px-4 flex flex-col shrink-0 w-full lg:w-auto lg:mb-0 pb-16">
+        <div className="flex flex-col gap-3 lg:gap-6 text-start items-start justify-center">
           <span className="font-extrabold text-md">
             <p>早稲田大学コンピューター研究会</p>
           </span>
@@ -147,7 +147,7 @@ export default function Hero({images}:{images: MicroCMSImage[]}) {
       </Carousel>
       <Carousel
         orientation="horizontal"
-        className="lg:hidden absolute w-full top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
+        className="lg:hidden absolute top-0 left-0 w-full px-4 pt-8"
         opts={{
           loop: true,
         }}
@@ -162,11 +162,11 @@ export default function Hero({images}:{images: MicroCMSImage[]}) {
             const mask = (() => {
               switch (index % 3) {
                 case 0:
-                  return "aspect-square mask-[url(/masks/brushes/4.png)]";
+                  return "aspect-square mask-[url(/masks/brushes/4.webp)]";
                 case 1:
-                  return "aspect-square mask-[url(/masks/brushes/2.png)]";
+                  return "aspect-square mask-[url(/masks/brushes/2.webp)]";
                 case 2:
-                  return "aspect-video mask-[url(/masks/brushes/1.png)]";
+                  return "aspect-video mask-[url(/masks/brushes/1.webp)]";
               }
             })();
             return (
@@ -178,7 +178,7 @@ export default function Hero({images}:{images: MicroCMSImage[]}) {
                   height={image.height}
                   sizes="100vw"
                   priority={index === 0}
-                  className={`object-cover ${mask} mask-no-repeat mask-center mask-contain`}
+                  className={`object-cover w-full max-w-sm mx-auto ${mask} mask-no-repeat mask-center mask-contain`}
                 />
               </CarouselItem>
             );
