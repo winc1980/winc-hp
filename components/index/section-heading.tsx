@@ -16,55 +16,61 @@ export default function SectionHeading({
   gsap.registerPlugin(TextPlugin);
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(SplitText);
-  const scope = useRef(null);
+  const scope = useRef<HTMLHeadingElement>(null);
 
   useGSAP(
     () => {
-      const splitLines = SplitText.create(".gsap-lines", {
-        type: "lines",
-        mask: "lines",
-      });
-      const tlLines = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".gsap-lines",
-          start: "top bottom",
-          end: "+=50%",
-          toggleActions: "play none none reverse",
-        },
-      });
-      tlLines.from(splitLines.lines, {
-        duration: 0.8,
-        y: 100,
-        autoAlpha: 0,
-        stagger: 0.05,
-      });
+      const lineTarget = scope.current?.querySelector(".section-heading-line");
+      if (lineTarget) {
+        const splitLines = SplitText.create(lineTarget, {
+          type: "lines",
+          mask: "lines",
+        });
+        const tlLines = gsap.timeline({
+          scrollTrigger: {
+            trigger: scope.current,
+            start: "top bottom",
+            end: "+=50%",
+            toggleActions: "play none none reverse",
+          },
+        });
+        tlLines.from(splitLines.lines, {
+          duration: 0.8,
+          y: 100,
+          autoAlpha: 0,
+          stagger: 0.05,
+        });
+      }
 
-      const typingTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".gsap-typing",
-          start: "top bottom",
-          end: "+=50%",
-          toggleActions: "play none none reset",
-        },
-      });
-      typingTl.to(".gsap-typing", {
-        autoAlpha: 1,
-        text: titleEn,
-        duration: titleEn.length * 0.1,
-      });
+      const typingTarget = scope.current?.querySelector(".section-heading-typing");
+      if (typingTarget) {
+        const typingTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: scope.current,
+            start: "top bottom",
+            end: "+=50%",
+            toggleActions: "play none none reset",
+          },
+        });
+        typingTl.to(typingTarget, {
+          autoAlpha: 1,
+          text: titleEn,
+          duration: titleEn.length * 0.1,
+        });
 
-      gsap.fromTo(
-        ".gsap-typing",
-        1,
-        {
-          "border-right-color": "rgba(0,0,0,0.8)",
-        },
-        {
-          "border-right-color": "rgba(255,255,255,0)",
-          repeat: -1,
-          ease: "steps(1)",
-        },
-      );
+        gsap.fromTo(
+          typingTarget,
+          1,
+          {
+            "border-right-color": "rgba(0,0,0,0.8)",
+          },
+          {
+            "border-right-color": "rgba(255,255,255,0)",
+            repeat: -1,
+            ease: "steps(1)",
+          },
+        );
+      }
     },
     { scope: scope }
   );
@@ -72,9 +78,10 @@ export default function SectionHeading({
   return (
     <div className="divide-effect">
       <h2 ref={scope} className="text-4xl lg:text-5xl font-light w-full overflow-y-hidden">
-        <p className="font-extrabold text-sm px-1 gsap-lines">{titleJa}</p>
-        <span className="gsap-typing overflow-hidden border-r-4 uppercase font-bold"></span>
+        <p className="font-extrabold text-sm px-1 section-heading-line">{titleJa}</p>
+        <span className="section-heading-typing overflow-hidden border-r-4 uppercase font-bold"></span>
       </h2>
     </div>
   );
 }
+

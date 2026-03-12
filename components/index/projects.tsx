@@ -20,13 +20,12 @@ export default async function Projects() {
       <section className="border-t border-b border-foreground/10 w-full max-w-7xl py-16 lg:py-32 flex flex-col gap-12 lg:gap-20">
         <SectionHeading titleEn="Featured projects" titleJa="注目のプロジェクト" />
         <div className="divide-effect">
-          <div className="flex flex-wrap max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-0 max-w-7xl">
             {/* 上位3件を表示 */}
             {projects.slice(0, 3).map((project) => (
               <ProjectCard
                 key={project.id}
                 project={project}
-                className='grow min-w-[300]'
               />
             ))}
           </div>

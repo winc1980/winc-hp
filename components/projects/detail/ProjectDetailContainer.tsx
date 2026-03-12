@@ -23,7 +23,7 @@ export default function ProjectDetailContainer({
         <UsedTechnologySection project={project} />
 
         {/* 貢献者 */}
-        <ContributorsSection project={project} />
+        {/* <ContributorsSection project={project} /> */}
       </div>
     </div>
   );
