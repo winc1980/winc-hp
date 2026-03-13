@@ -28,13 +28,13 @@ export default function Footer() {
       <section className="flex flex-col lg:flex-row gap-8 lg:gap-16 justify-between w-full max-w-7xl lg:py-16 px-4 lg:px-0 lg:pr-3">
         <Link href="/">
           <Image
-            src="/WINC-classic-designs/logo.svg"
+            src="/WINC-designs/SVG/badge-colored.svg"
             width={180}
-            height={64}
-            alt="WINC - 早稲田コンピューター研究会"
+            height={180}
+            alt="WINCの伝統的なアイコンをモチーフにしたバッジ風ロゴ"
           />
         </Link>
-        <div className="flex flex-col lg:flex-row gap-4 w-full justify-around">
+        <div className="grow flex flex-col lg:flex-row gap-4 justify-around">
           <div className="flex flex-col items-start">
             <p className="font-black text-xl py-4">Projects</p>
             <Link href="/projects#apps" className="p-2 text-sm font-semibold">
