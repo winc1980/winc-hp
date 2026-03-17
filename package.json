@@ -8,6 +8,7 @@
     "start": "npx serve@latest out",
     "lint": "next lint"
   },
+  "packageManager": "pnpm@10.32.1",
   "engines": {
     "node": ">=20"
   },
