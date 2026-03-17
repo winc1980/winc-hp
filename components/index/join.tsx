@@ -9,8 +9,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/all";
 import SectionHeading from "./section-heading";
 import { PrimaryButton } from "../buttons/PrimaryButton";
+import ShinkanCalendar from "./shinkan-calendar";
 
-export default function Join({heading,body}: { heading: string; body: string }) {
+export default function Join({ heading, body }: { heading: string; body: string }) {
   gsap.registerPlugin(TextPlugin);
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(SplitText);
@@ -86,12 +87,23 @@ export default function Join({heading,body}: { heading: string; body: string }) 
             <p dangerouslySetInnerHTML={{ __html: body.replace(/\n/g, "<br />") }} />
           </div>
         </div>
-        <Link href="https://secure.register.winc.ne.jp/">
-          <PrimaryButton>
-            新入生向け情報
-            <ArrowRight />
-          </PrimaryButton>
-        </Link>
+        <div className="my-8">
+          <ShinkanCalendar />
+        </div>
+        <div className="p-2 flex flex-col sm:flex-row gap-4 mt-12">
+          <Link href="https://secure.register.winc.ne.jp/">
+            <PrimaryButton>
+              新入生向け情報
+              <ArrowRight />
+            </PrimaryButton>
+          </Link>
+          <Link href="https://forms.gle/mEZfW1Rr7CSi5Q5h9">
+            <PrimaryButton>
+              新歓参加FORM
+              <ArrowRight />
+            </PrimaryButton>
+          </Link>
+        </div>
       </section>
     </div>
   );
