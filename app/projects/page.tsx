@@ -1,6 +1,5 @@
 import PageHeader from "@/components/page-header";
 import ProjectSection from "@/components/projects/ProjectSection";
-import Script from "next/script";
 import { ProjectType } from "@/types/Project";
 import { client } from "@/libs/microcms";
 

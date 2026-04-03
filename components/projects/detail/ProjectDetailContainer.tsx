@@ -1,6 +1,5 @@
 import UsedTechnologySection from "./technology/UsedTechnologySection";
 import Overview from "./overview/Overview";
-import ContributorsSection from "./contributors/ContributorsSection";
 import { ProjectType } from "@/types/Project";
 import { ImageCarousel } from "./carousel/carousel";
 
