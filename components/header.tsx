@@ -91,7 +91,7 @@ export default function Header() {
                   />
                 </Link>
                 <Link
-                  href="https://www.instagram.com/waseda_winc/"
+                  href="https://x.com/waseda_winc"
                   className="flex items-center justify-center min-w-[44px] min-h-[44px] p-2"
                   aria-label="公式Instagram - waseda_winc"
                 >
